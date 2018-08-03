@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    我的博客
+{% endblock %}
+
+{% block content %}
+    <!--遍历博客列表-->
+{% for blog in blogs %}
+        <h3>
+            <a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a>
+        </h3>
+        <p>{{ blog.content|truncatechars_html:30 }}</p><!-- 过滤器 -->
+        {% empty %}
+    <p>--暂不博客,敬请期待--</p>
+    {% endfor %}<!--如果没有博客 -->
+    <p>一共有{{ blogs|length }}篇博客</p><!--有|的： 过滤器 -->
+{% endblock %}

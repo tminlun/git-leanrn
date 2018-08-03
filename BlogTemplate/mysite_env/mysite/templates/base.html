@@ -1,0 +1,27 @@
+{% load staticfiles %}{# 引入css方法二 #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {# 引入css方法 一 #}  
+   <!--  <link rel="stylesheet" type="text/css" href="/static/base.css"> -->
+
+   {# 引入css方法 二 #}
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    {% block head_extends %}{% endblock %}<!-- 头对其他页面进行扩展，其他页面可以在此引入css -->
+</head>
+<body>
+	<div class="nav">
+    	<a class="logo" href="{% url 'home' %}" title="logo">
+        	<h3>
+        		个人博客网站
+        	</h3>
+    	</a>       
+   		<a href="{% url 'home' %}" title="首页">首页</a>
+    	<a href="{% url 'blog_list' %}" target="_blank">博客</a>
+	</div>
+
+	{% block content %}{% endblock %}
+</body>
+</html>
