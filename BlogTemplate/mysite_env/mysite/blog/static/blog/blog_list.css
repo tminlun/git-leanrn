@@ -1,0 +1,11 @@
+ul.blog_types{
+	list-style: none;
+}
+.blog h3{
+	margin-top: 0.5em;
+}
+div.blog:not(:last-child){/*不装饰最后一个*/
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #eee;
+}

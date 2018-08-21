@@ -3,18 +3,4 @@
 	margin: 0;
 	font-family: "Times New Roman";
 }
-.nav{
-	padding: 10px 5px;
-	background-color: #eee;
-	border-bottom: 1px solid #ccc;
-}
-div.nav a{
 
-	padding: 5px 10px;
-	text-decoration: none;
-	color: #000;
-}
-div.nav a.logo{
-	font-size: 120%;
-	display: inline-block;
-}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}我的博客{% endblock %}
+{% block nav_blog_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block head_extends %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/blog_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-9 col-lg-10"><!-- 如果没有设置小屏幕布局，到了小屏幕的宽度范围'博客分类'会自动掉下去 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">博客列表（一共有{{ blogs|length }}篇博客）</div>
+                    <div class="panel-body">
+                        {% for blog in blogs %}
+                            <div class="blog">
+                                <h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
+                                <p class="info">
+                                    分类：<a href="{% url 'blogs_with_type' blog.pk %}"> {{ blog.blog_type }}</a>
+                                    发表时间：{{ blog.created_time|date:"Y-m-d"}}
+                                </p>
+                                <p>{{ blog.content|truncatechars_html:120 }}</p>
+                            </div>
+                        {% empty %}
+                            <div class="blog">
+                                <h3>--暂不博客,敬请期待--</h3>
+                            </div>
+                        {% endfor %}<!--如果没有博客 -->
+                    </div>
+                </div>
+            </div> 
+            <div class="hidden-xs col-sm-4 col-md-3 col-lg-2"><!-- hidden-xs:超小屏幕不可见分类 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">博客分类</div>
+                    <div class="panel-body">
+                        <ul class="blog_types">
+                            {% for blog_type in blog_types %}
+                                <li>
+                                    <a href="{% url 'blogs_with_type' blog_type.pk %}">
+                                        {{ blog_type.type_name }}
+                                    </a>
+                                </li>
+                            {% empty %}
+                            <li>暂不分类，敬请期待！</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+
+    
+
+{% endblock %}

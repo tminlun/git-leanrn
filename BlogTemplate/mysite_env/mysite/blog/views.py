@@ -6,6 +6,7 @@ def blog_list(request):
     blog = Blog.objects.all()
     context = {}
     context['blogs'] = blog
+    context['blog_types'] = BlogType.objects.all()
     return render_to_response('blog/blog_list.html',context)
 
 #博客细节

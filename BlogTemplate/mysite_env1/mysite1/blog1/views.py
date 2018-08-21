@@ -3,6 +3,7 @@ from .models import Blog1,BlogType
 
 def blog_list(request):
     context = {}
+    context['blog_types'] = BlogType.objects.all()#获取所有的博客分类
     context['blogs'] = Blog1.objects.all()#获取所有的博客
     return render_to_response('blog/blog_list.html', context)
 
