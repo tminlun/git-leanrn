@@ -1,4 +1,4 @@
-from django.db import models
+﻿from django.db import models
 from django.contrib.auth.models import User
 
 #博客分类模型
@@ -18,3 +18,7 @@ class Blog1(models.Model):
 
     def __str__(self):
         return "<Blog1: %s>" % self.title
+
+    #显示出最新的博客，历史博客放后面
+    class Meta:
+        ordering = ['-created_time']

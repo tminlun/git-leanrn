@@ -4,7 +4,7 @@
 
 {% load staticfiles %}
 {% block head_extends %}
-    <link rel="stylesheet" href="{% static 'blog/blog_list.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -12,20 +12,30 @@
         <div class="row">
             <div class="col-sm-8 col-md-9 col-lg-10">
                 <div class="panel panel-default">
-                    <div class="panel-heading">博客列表（一共有{{ blogs|length }}篇博客）</div>
+                    <div class="panel-heading">{% block head_title %}博客列表（一共有{{ page_of_blogs.paginator.count }}篇博客）{% endblock %}</div>
                     <div class="panel-body">
-                        {% for blog in blogs %}{# 遍历所有的博客 #}
-                            <h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
-                            <p>{{ blog.content|truncatechars_html:120 }}</p>
-                            <p>分类：
-                                {{ blog.blog_type }}
-                            </p>
-                            {# 如果没有博客 #}
-                            {% empty %}
-                            <h3>-- 暂无博客，敬请期待 --</h3>
+                        {% for blog in page_of_blogs.object_list %}{# 遍历所有的博客 #}
+                            <div class="blog">
+                                <h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
+                                <p class="blog-info">
+                                    <span class="glyphicon glyphicon-tag"></span>
+                                    <a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a><!-- blog_type:views.blogs_with_type中的对象 -->
+                                    <span class="glyphicon glyphicon-time"></span>
+                                    {{ blog.created_time|date:"Y-m-d" }}
+                                </p>
+                                <p>{{ blog.content|truncatechars_html:120 }}</p>
+                            </div>
+                        {% empty %}
+                            <div class="blog">
+                                <h3>-- 暂无博客，敬请期待 --</h3>
+                            </div>                          
                         {% endfor %}
-                        <p style="font-size:12px;">一共有{{ blogs|length }}篇博客</p>
                     </div>
+                </div>
+                <div>
+                    {% for page_num in page_of_blogs.paginator.page_range %}
+                        <span>{{ page_num }}</span>
+                    {% endfor %}
                 </div>
             </div>
             <div class="hidden-xs col-sm-4 col-md-3 col-lg-2">

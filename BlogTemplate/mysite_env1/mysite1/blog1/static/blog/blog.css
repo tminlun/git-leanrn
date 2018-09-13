@@ -1,0 +1,23 @@
+ul.blog-types{
+    list-style: none;
+}
+.blog:not(:last-child){
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+}
+div.blog p.blog-info{
+	margin-bottom: 0;
+}
+
+ul.blog-info-description{/*去掉ul前面的点*/
+	margin-bottom: 1em;
+	list-style: none;
+}
+ul.blog-info-description li{/*块级模块变成行级模块*/
+	margin-right: 2em;
+	display: inline-block;
+}
+div.blog-content{/*内容首行缩进*/
+	text-indent: 2em;
+}
