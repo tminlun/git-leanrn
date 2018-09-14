@@ -10,7 +10,9 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-sm-8 col-md-9 col-lg-10"><!-- 如果没有设置小屏幕布局，到了小屏幕的宽度范围'博客分类'会自动掉下去 -->
+            {# 博客列表 #}
+            <div class="col-sm-8 col-md-9 col-lg-10">
+                <!-- 如果没有设置小屏幕布局，到了小屏幕的宽度范围'博客分类'会自动掉下去 -->
                 <div class="panel panel-default">
                     <div class="panel-heading">{% block blog_list_title %}博客列表（一共有{{ page_of_blogs.paginator.count }}篇博客）{% endblock %}</div>
                     <div class="panel-body">
@@ -32,12 +34,40 @@
                         {% endfor %}<!--如果没有博客 -->
                     </div>
                 </div>
+                {# 分页 #}
                 <div>
-                    {% for page_num in page_of_blogs.paginator.page_range %}
-                        <span>{{ page_num }}</span>
-                    {% endfor %}
+                    <ul class="pagination">
+                        {# 上一页 #}
+                        <li>
+                            {% if page_of_blogs.has_previous %}                            
+                                <a href="?page={{ page_of_blogs.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>                              
+                            {% else %}
+                                <span aria-hidden="true">&laquo;</span>
+                            {% endif %} 
+                        </li>
+
+                        {# 全部页码 #} 
+                        {% for page_num in page_of_blogs.paginator.page_range %}
+                            <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% endfor %}
+
+                        {# 下一页 #}
+                        <li>
+                            {% if page_of_blogs.has_next %}
+                                <a href="?page={{ page_of_blogs.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            {% else %}
+                                <span aria-hidden="true">&raquo;</span>
+                            {% endif %}                           
+                        </li>
+                    </ul>
                 </div>
+
             </div> 
+            {# 博客分类 #}
             <div class="hidden-xs col-sm-4 col-md-3 col-lg-2"><!-- hidden-xs:超小屏幕不可见分类 -->
                 <div class="panel panel-default">
                     <div class="panel-heading">博客分类</div>
