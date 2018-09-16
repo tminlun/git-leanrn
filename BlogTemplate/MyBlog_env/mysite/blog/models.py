@@ -19,3 +19,6 @@ class Blog(models.Model):
 
     def __str__(self):
         return "<Blog:%s>" % self.title
+    #倒序博客
+    class Meta:
+        ordering = ['-created_time',]

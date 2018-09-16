@@ -1,4 +1,4 @@
-.home-content{
+/*.home-content{
 	
 	position: absolute;
 	left: 50%;
@@ -7,4 +7,23 @@
 }
 .home-content p{
 	font-size: 60px;
+}*/
+
+.jumbotron{
+	background-color: #6f5499;
+	margin-top: -1.5em;
+}
+.container{
+	text-align: center;
+}
+.jumbotron h1{
+	color: #fff;
+	font-size: 3em;
+}
+.jumbotron p{
+	margin: 1em 0;
+	color: #B9BFE4;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 14px;
 }

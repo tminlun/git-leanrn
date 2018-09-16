@@ -1,0 +1,20 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.col-xs-10 h3{
+	color: #0d56a6;
+}
+.blog-info-description{
+	list-style: none;
+	margin-bottom: 1em;
+
+}
+.blog-info-description li{
+	font-size: 12px;
+	display: inline;
+	margin-right: 2em;
+}
+.blog-content{
+	text-indent: 2em;
+}

@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block title %}我的博客{% endblock %}
+{% block title %}田敏伦的博客{% endblock %}
 {% block head_extend %}
-    <link rel="stylesheet" type="text/css" href="{% static 'blog_list.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/blog_list.css' %}">
 {% endblock %}
+{% block nav-blog-active %}active{% endblock %}
 
 {% block content %}
     <div class="container">
-        <div class="row">          
+        <div class="row">
+            <!-- 博客 -->          
             <div class="col-sm-8 col-md-9 col-lg-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a href="{% url 'blog_list' %}">
-                            博客列表(一共有{{ blogs|length }}篇博客)
+                            {% block blog_list_title %}
+                                博客列表(一共有{{ blogs|length }}篇博客)
+                            {% endblock %}
                         </a>
                     </div>
                     <div class="panel-body">
@@ -27,8 +31,11 @@
                                     <ul>
                                         <li><span class="glyphicon glyphicon-time"></span>
                                         {{ blog.created_time|date:"Y-m-H" }}</li>
-                                        <li><span class="glyphicon glyphicon-tags"></span>
-                                        <a href="">{{ blog.blog_type }}</a></li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-tags"></span>
+                                            <a href="{% url 'blog_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a>
+
+                                        </li>
                                         
                                     </ul>
                                 </div>                         
@@ -38,9 +45,38 @@
                         {% endfor %}
                     </div>
                 </div>
-
+                <!-- 分页 -->
+                <div style="text-align: center;">
+                    <ul class="pagination">
+                        <!-- 上一页 -->
+                        <li>
+                            {% if page_of_blogs.has_previous %}                               
+                                  <a href="?page={{ page_of_blogs.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                  </a>                               
+                            {% else %}
+                            <!-- 如果没有上一页，用户就只能点击这个(&laquo;)图案 -->
+                                <span aria-hidden="true">&laquo;</span>
+                            {% endif %}
+                        </li>
+                        <!-- 页码 -->
+                        {% for page_num in page_of_blogs.paginator.page_range %}
+                            <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% endfor %}
+                        <!-- 下一页 -->
+                        <li>
+                            {% if page_of_blogs.has_next %}
+                                <a href="?page={{ page_of_blogs.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            {% else %}
+                                <span aria-hidden="true">&raquo;</span>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
             </div>
-           
+           <!-- 分类 -->
             <div class="hidden-xs col-sm-4 col-md-3 col-lg-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -49,14 +85,13 @@
                         </a>
                     </div>
                     <div class="panel-body">
-                            <ul class="blog_type">
-                                {% for blog_type in blog_types %}
-                                    <li><a href="{% url 'blog_type' blog_type.pk %}">{{ blog_type.type_name }}</a></li>
-                                {% empty %}
-                                    <p>--暂无分类，敬请期待！--</p>
-                                {% endfor %}
-                            </ul>
-                        
+                        <ul class="blog_type">
+                            {% for blog_type in blog_types %}
+                                <li><a href="{% url 'blog_type' blog_type.pk %}">{{ blog_type.type_name }}</a></li>
+                            {% empty %}
+                                <p>--暂无分类，敬请期待！--</p>
+                            {% endfor %}
+                        </ul>                      
                     </div>
                 </div>
             </div>

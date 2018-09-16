@@ -25,8 +25,6 @@ def blogs_with_type(request,blog_with_type_pk):
     context = {}
     blog_type = get_object_or_404(BlogType,pk = blog_with_type_pk)
     context['blog_type'] = blog_type#分类名
-    context['blogs'] = Blog.objects.filter(blog_type=blog_type) #筛选显示：类型
+    context['blogs'] = Blog.objects.filter(blog_type=blog_type) #筛选相对应的类型
     context['blog_types'] = BlogType.objects.all()#所有的分类
     return render_to_response('blog/blogs_with_type.html',context)
-
-
