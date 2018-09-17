@@ -10,11 +10,12 @@
 {% block content %}
     <div class="container">
         <div class="row">
+            <!-- 博客列表 -->
             <div class="col-sm-8 col-md-9 col-lg-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">{% block head_title %}博客列表（一共有{{ page_of_blogs.paginator.count }}篇博客）{% endblock %}</div>
                     <div class="panel-body">
-                        {% for blog in page_of_blogs.object_list %}{# 遍历所有的博客 #}
+                        {% for blog in blogs %}{# 遍历所有的博客 #}
                             <div class="blog">
                                 <h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
                                 <p class="blog-info">
@@ -32,12 +33,42 @@
                         {% endfor %}
                     </div>
                 </div>
+                <!-- 分页 -->
                 <div>
-                    {% for page_num in page_of_blogs.paginator.page_range %}
-                        <span>{{ page_num }}</span>
-                    {% endfor %}
+                    <ul class="pagination">
+                        <!-- 上一页 -->
+                        <li>
+                            {% if page_of_blogs.has_previous %}
+                                <a href="?page={{ page_of_blogs.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            {% else %}
+                                 <span aria-hidden="true">&laquo;</span>
+                            {% endif %}                         
+                        </li>
+                        <!-- 页码 -->
+                        {% for page_num in page_ranges %}
+                            {% if page_num == page_of_blogs.number %}<!--如果所在的页码等于当前页码-->
+                                <li class="active"><span>{{ page_num }}</span></li>
+                            {% else %}
+                                <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        <!-- 下一页 -->
+                        <li>
+                            {% if page_of_blogs.has_next %}
+                                <a href="?page={{ page_of_blogs.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            {% else %}
+                                <span aria-hidden="true">&raquo;</span>
+                            {% endif %}
+                          
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <!-- 分类 -->
             <div class="hidden-xs col-sm-4 col-md-3 col-lg-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">博客分类</div>

@@ -55,6 +55,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # 所有的templates都有效,文件不用加templates,直接使用templates里面的文件
         'DIRS': [
             os.path.join(BASE_DIR,'templates'),
         ],

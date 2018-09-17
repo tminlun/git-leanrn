@@ -4,14 +4,19 @@ from .models import Blog1,BlogType
 
 def blog_list(request):
     blog_all_list = Blog1.objects.all()
-    paginator = Paginator(blog_all_list,10)#每一页10篇博客
+    paginator = Paginator(blog_all_list,2)#每一页10篇博客
     page_num = request.GET.get('page',10)#GET获取page页码
     page_of_blogs = paginator.get_page(page_num)#当前页面的博客内容
+    current_page_num = page_of_blogs.number #获取当前页码
+    page_ranges = list(range(max(current_page_num - 2, 1), current_page_num,)) + \
+                  list(range(current_page_num, min(current_page_num + 2, paginator.num_pages) + 1))
+
 
     context = {}
     context['blog_types'] = BlogType.objects.all()#获取所有的博客分类
     context['page_of_blogs'] = page_of_blogs
-    # context['blogs'] = Blog1.objects.all()#获取所有的博客
+    context['blogs'] = page_of_blogs.object_list#获取所有的博客
+    context['page_ranges'] = page_ranges
     return render_to_response('blog/blog_list.html', context)
 
 def blog_detail(request,blog_pk):

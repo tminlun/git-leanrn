@@ -16,7 +16,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">{% block blog_list_title %}博客列表（一共有{{ page_of_blogs.paginator.count }}篇博客）{% endblock %}</div>
                     <div class="panel-body">
-                        {% for blog in page_of_blogs.object_list %}
+                        {% for blog in blogs %}
                             <div class="blog">
                                 <h3><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
                                 <p class="blog-info">
@@ -49,8 +49,14 @@
                         </li>
 
                         {# 全部页码 #} 
-                        {% for page_num in page_of_blogs.paginator.page_range %}
-                            <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% for page_num in page_range %}
+                            {% if page_num == page_of_blogs.number %}<!--如果点击的页码等于当前页面-->
+                                <!--当前页码不需要点击和转跳，所以span-->
+                                <li class="active"><span>{{ page_num }}</span></li>
+                            {% else %}
+                                <!--如果不是当前页码就要a标签转跳-->
+                                <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                            {% endif %}
                         {% endfor %}
 
                         {# 下一页 #}

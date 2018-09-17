@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 class BlogType(models.Model):
     type_name = models.CharField(max_length=15,verbose_name='类型')
 
-
-
     def __str__(self):#不加只能显示出对象,不能显示类型名
         return self.type_name
 
