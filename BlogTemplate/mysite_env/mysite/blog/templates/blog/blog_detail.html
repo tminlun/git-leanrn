@@ -20,8 +20,11 @@
                             <a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a>
                         </li>
                     </ul>
-                    
                     <div class="blog-content">{{ blog.content }}</div>
+                    <div class="blog_more">
+                        <p>上一篇：{{ previous_blog.title }}</p>
+                        <p>下一篇：{{ next_blog.title }}</p>
+                    </div>
             </div>   
         </div>
     </div>

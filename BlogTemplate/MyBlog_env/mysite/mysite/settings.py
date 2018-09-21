@@ -125,3 +125,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
+
+#每一页的博客数量
+EACK_PAGE_BLOG_NUMBER = 7

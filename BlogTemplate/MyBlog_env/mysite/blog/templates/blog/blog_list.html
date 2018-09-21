@@ -16,7 +16,7 @@
                     <div class="panel-heading">
                         <a href="{% url 'blog_list' %}">
                             {% block blog_list_title %}
-                                博客列表(一共有{{ blogs|length }}篇博客)
+                                博客列表
                             {% endblock %}
                         </a>
                     </div>
@@ -46,11 +46,12 @@
                     </div>
                 </div>
                 <!-- 分页 -->
-                <div style="text-align: center;">
+                <div class="paginator">
                     <ul class="pagination">
                         <!-- 上一页 -->
                         <li>
-                            {% if page_of_blogs.has_previous %}                               
+                            {% if page_of_blogs.has_previous %}
+                                  {# previous_page_number:前一页的页码 #}
                                   <a href="?page={{ page_of_blogs.previous_page_number }}" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                   </a>                               
@@ -60,8 +61,17 @@
                             {% endif %}
                         </li>
                         <!-- 页码 -->
-                        {% for page_num in page_of_blogs.paginator.page_range %}
-                            <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% for page_num in page_range %}
+                            {% if page_num == page_of_blogs.number %}{# 如果是点击状态不转跳 #}
+                                <li class="active"><span>{{ page_num }}</span></li>
+                            {% else %}
+                                {# 如果页码为...不转跳，（...也是页码） #}
+                                {% if page_num == '...' %}
+                                    <li><span>{{ page_num }}</span></li>
+                                {% else %}
+                                    <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                                {% endif %}
+                            {% endif %}
                         {% endfor %}
                         <!-- 下一页 -->
                         <li>
@@ -74,6 +84,10 @@
                             {% endif %}
                         </li>
                     </ul>
+                    <div>
+                        一共有{{ blogs|length }}篇博客，当前第{{ page_of_blogs.number }}页，
+                        共{{ page_of_blogs.paginator.num_pages }}页
+                    </div>
                 </div>
             </div>
            <!-- 分类 -->

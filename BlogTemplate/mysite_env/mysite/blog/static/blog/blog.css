@@ -12,7 +12,9 @@ div.blog:not(:last-child){/*不装饰最后一个*/
 div.blog p.blog-info{
 	margin: 0;
 }
-
+.paginator{
+	text-align: center;
+}
 ul.blog-info-description{
 	list-style: none;
 	margin-bottom: 1em;

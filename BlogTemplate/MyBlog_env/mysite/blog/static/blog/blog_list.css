@@ -29,7 +29,9 @@ div.blog:not(:last-child){/*不装饰最后一个*/
     padding-top: 0.5em;
     margin-right: 1em;
 }
-
+.paginator{ /*分页*/
+    text-align: center;
+}
 .blog_type{
 	list-style: none;
 }
