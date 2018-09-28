@@ -22,8 +22,20 @@
                     </ul>
                     <div class="blog-content">{{ blog.content }}</div>
                     <div class="blog_more">
-                        <p>上一篇：{{ previous_blog.title }}</p>
-                        <p>下一篇：{{ next_blog.title }}</p>
+                        <p>
+                            {% if previous_blog %} {# 如果有上一篇 #}
+                                <a href="{% url 'blog_detail' previous_blog.pk %}">上一篇：{{ previous_blog.title }}</a>
+                            {% else %} {# 没有上一篇提示没有 #}
+                                没有了
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if next_blog %}
+                                <a href="{% url 'blog_detail' next_blog.pk %}">下一篇：{{ next_blog.title }}</a>
+                            {% else %}
+                                没有咯
+                            {% endif %}
+                        </p>
                     </div>
             </div>   
         </div>

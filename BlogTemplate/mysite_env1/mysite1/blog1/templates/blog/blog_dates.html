@@ -1,0 +1,6 @@
+{% extends 'blog/blog_list.html' %}
+
+{% block head_title %}
+    时间归档：{{ blog_current_date }}
+    <a href="{% url 'blog_list' %}">博客列表</a>
+{% endblock %}

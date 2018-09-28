@@ -1,5 +1,5 @@
-.blog-types{
-    list-style: none;
+ul{
+	list-style: none;
 }
 .blog:not(:last-child){
     border-bottom: 1px solid #eee;
@@ -22,4 +22,7 @@ ul.blog-info-description li{/*块级模块变成行级模块*/
 }
 div.blog-content{/*内容首行缩进*/
 	text-indent: 2em;
+}
+.blog-more{
+	margin-top: 1em;
 }

@@ -1,5 +1,5 @@
-ul.blog_types{
-	list-style: none;
+ul{
+    list-style: none;
 }
 div.blog:not(:last-child){/*不装饰最后一个*/
 	margin-bottom: 2em;
@@ -16,7 +16,6 @@ div.blog p.blog-info{
 	text-align: center;
 }
 ul.blog-info-description{
-	list-style: none;
 	margin-bottom: 1em;
 }
 ul.blog-info-description li{
@@ -26,3 +25,7 @@ ul.blog-info-description li{
 div.blog-content{
 	text-indent: 2em;
 }
+.blog_more{
+	margin-top: 1em;
+}
+
