@@ -1,0 +1,23 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- 修改为你想要的标题或者就用这个 -->
+<title>404错误 - 您所访问的页面未找到 </title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- content="5，为5秒后就返回主页，可根据需要修改或者删除这段代码 -->
+<meta http-equiv="refresh" content="5;url=/">
+<!-- 修改以下CSS路径为你安装的目录，如：/template/zbr_404/css/error.css -->
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/error.css' %}" media="screen" />
+</head>
+<body>
+<!-- 修改以下图片路径为你安装的目录，如：/template/zbr_404/images/404.png -->
+<div id="container">
+    <img class="png" src="{% static 'blog/images/404.png' %}" />
+    <img class="png msg" src="{% static 'blog/images/404_msg.png' %}" />
+  <p><a href="/"><img class="png" src="{% static 'blog/images/404_to_index.png' %}" /></a> </p>
+</div>
+<div id="cloud" class="png"></div>
+<pre style="DISPLAY: none"></pre>
+</body>
+</html>

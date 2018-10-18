@@ -1,0 +1,101 @@
+{# 图片集锦 #}
+{% extends 'base.html' %}
+{% load staticfiles %}
+<title>{% block title_extends %}{% endblock %}</title>
+{% block head_extends %}
+    <meta charset="utf-8">
+    <meta name="keywords" content="个人博客,杨青个人博客,个人博客模板,杨青" />
+    <meta name="description" content="杨青个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../../static/css/base.css" rel="stylesheet">
+    <link href="../../../static/css/share.css" rel="stylesheet">
+    <link href="../../../static/css/m.css" rel="stylesheet">
+    <script src="../../../static/js/jquery.min.js" ></script>
+    <script src="../../../static/js/share.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+{% endblock %}
+{% block context %}
+    <article>
+  <div class="topbox">
+    <ul>
+      <li><i><a href="/"><span class="tnum">1</span><span class="tpic"><img src="../../../static/images/4.jpg"></span><span class="toptext">Jordan《》</span></a></i></li>
+      <li><i><a href="/"><span class="tnum">2</span><span class="tpic"><img src="../../../static/images/mb2.jpg"></span><span class="toptext">html5个人博客模板《simple》</span></a></i></li>
+      <li><i><a href="/"><span class="tnum">3</span><span class="tpic"><img src="../../../static/images/mb3.jpg"></span><span class="toptext">html5个人博客模板《simple》</span></a></i></li>
+      <li><i><a href="/"><span class="tnum">4</span><span class="tpic"><img src="../../../static/images/mb4.jpg"></span><span class="toptext">html5个人博客模板《simple》</span></a></i></li>
+    </ul>
+  </div>
+  <div class="fenlei">
+    <ul>
+      <li class="flselect"><a href="#top1">古典个人博客</a> </li>
+      <li><a href="#top2">小清新</a> </li>
+      <li><a href="#top3">时尚简洁</a> </li>
+      <li><a href="#top4">技术门户</a> </li>
+      <li><a href="#top5">国外html5</a> </li>
+      <li><a href="#top6">PSD设计图</a> </li>
+    </ul>
+  </div>
+  <div class="mbans">
+    <div class="mban"  style="display: block;" name="top1">
+      <ul>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb1.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb2.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb3.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb4.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb5.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb1.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb2.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb3.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb4.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb5.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+      </ul>
+    </div>
+    <div class="mban" name="top2">
+      <ul>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb1.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb4.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb2.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb3.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb5.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+      </ul>
+    </div>
+    <div class="mban" name="top3">
+      <ul>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb2.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb3.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb4.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb5.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb1.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+      </ul>
+    </div>
+    <div class="mban" name="top4">
+      <ul>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb3.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb1.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb2.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb4.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb5.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+      </ul>
+    </div>
+    <div class="mban" name="top5">
+      <ul>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb2.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb1.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb4.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb3.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb5.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+      </ul>
+    </div>
+    <div class="mban" name="top6">
+      <ul>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb5.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb1.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb2.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb3.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+        <li><i><a href="/"><span class="tnum">原创</span><img src="../../../static/images/mb4.jpg"> <span class="mbtitle">个人博客模板《simple》</span> </a></i></li>
+      </ul>
+    </div>
+  </div>
+</article>
+{% endblock %}
