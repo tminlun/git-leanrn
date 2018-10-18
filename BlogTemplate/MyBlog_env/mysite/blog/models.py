@@ -6,6 +6,8 @@ class BlogType(models.Model):
 
     def __str__(self):#不加只能显示出对象,不能显示类型名
         return self.type_name
+    # def blog_count(self):
+    #     return self.blog_set.all().count()
 
 class Blog(models.Model):
     title = models.CharField(max_length=20,verbose_name='标题')

@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
     'blog1',
+   'read_statistics',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'zh-Hans'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'UTC'
 
@@ -124,6 +127,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
+
+MEDIA_URL = '/media/'#图片传过来的url
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')#传给哪个文件
+CKEDITOR_UPLOAD_PATH = 'upload/'# 在media的子文件：存放照片
 
 #每一页的博客数量
 EACH_PAGE_BLOG_NUMBER = 7

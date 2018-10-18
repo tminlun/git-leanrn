@@ -17,7 +17,7 @@ ul.blog-info-description{/*去掉ul前面的点*/
 	list-style: none;
 }
 ul.blog-info-description li{/*块级模块变成行级模块*/
-	margin-right: 2em;
+	margin-right: 1em;
 	display: inline-block;
 }
 div.blog-content{/*内容首行缩进*/

@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response,get_object_or_404
 from django.core.paginator import Paginator
 from django.conf import settings
 from .models import Blog,BlogType
+from django.db.models.aggregates import Count
 
 #获取博客列表共同的数据,设置参数blog_all_list全部博客,因为每个方法都有不同的获取方法
 def get_blog_list_common_data(request, blog_all_list):
@@ -26,14 +27,21 @@ def get_blog_list_common_data(request, blog_all_list):
     if page_range[-1] != paginator.num_pages:
         page_range.append(paginator.num_pages)  # 添加总页码到最后显示页码(append在尾部添加)
 
+    blog_dates = Blog.objects.dates('created_time','month',order="DESC")
+    blog_dates_dict = {}
+    for blog_date in blog_dates:
+        date_count = Blog.objects.filter(created_time__year=blog_date.year,created_time__month=blog_date.month).count()
+        blog_dates_dict[blog_date] = date_count
+
     context = {}
-    context['page_range'] = page_range  # 返回对象给模板
-    context['page_of_blogs'] = page_of_blogs  # 页码信息,1,2,3...上一页下一页
+    context['page_of_blogs'] = page_of_blogs  # 当前页码
+    context['page_range'] = page_range  # 返回所有页码给模板
     context['blogs'] = page_of_blogs.object_list  # 获取所有博客
-    context['blog_types'] = BlogType.objects.all()
+    # annotate自动返回BlogType的所有数据
+    context['blog_types']=BlogType.objects.annotate(type_count = Count('blog')).filter(type_count__gt=0)
     # 获取到全部的年和月
-    context['blog_dates'] = Blog.objects.dates('created_time', 'month', order='DESC')
-    return context #返回给模板 render_to_response('？.html',context)
+    context['blog_dates'] = blog_dates_dict  # 这里是一个坑,记住把日期和数量给对象
+    return context    #返回给模板 render_to_response('？.html',context)
 
 def blog_list(request):
     blog_all_list = Blog.objects.all()#全部的博客列表

@@ -14,11 +14,11 @@
             <div class="col-sm-8 col-md-9 col-lg-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="{% url 'blog_list' %}">
-                            {% block blog_list_title %}
+                        {% block blog_list_title %}
+                            <a href="{% url 'blog_list' %}">
                                 博客列表
-                            {% endblock %}
-                        </a>
+                            </a>
+                        {% endblock %}
                     </div>
                     <div class="panel-body">
                         {% for blog in blogs %}
@@ -90,8 +90,9 @@
                     </div>
                 </div>
             </div>
-           <!-- 分类 -->
+
             <div class="hidden-xs col-sm-4 col-md-3 col-lg-2">
+                <!-- 分类 -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a href="{% url 'blog_list' %}">
@@ -101,11 +102,31 @@
                     <div class="panel-body">
                         <ul class="blog_type">
                             {% for blog_type in blog_types %}
-                                <li><a href="{% url 'blog_type' blog_type.pk %}">{{ blog_type.type_name }}</a></li>
+                                <li>
+                                    <a href="{% url 'blog_type' blog_type.pk %}">
+                                        {{ blog_type.type_name }}（{{ blog_type.type_count }}）
+                                    </a>
+                                </li>
                             {% empty %}
                                 <p>--暂无分类，敬请期待！--</p>
                             {% endfor %}
                         </ul>                      
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href="{% url 'blog_list' %}">时间归档</a>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            {% for blog_date,date_count in blog_dates.items %}
+                                <li>
+                                    <a href="{% url 'blog_date' blog_date.year blog_date.month %}">
+                                        {{ blog_date|date:"Y年m月" }}（{{ date_count }}）
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>

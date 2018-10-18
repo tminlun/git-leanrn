@@ -18,6 +18,22 @@
 					<li>作者：{{ blog.author }}</li>
 				</ul>
 				<p class="blog-content">{{ blog.content }}</p>
+                <div class="blog-more">
+                    <p>
+                        {% if previous_blog %}
+                            <a href="{% url 'blog_detail' previous_blog.pk %}">上一篇：{{ previous_blog.title }}</a>
+                        {% else %}
+                            没有了
+                        {% endif %}
+                    </p>
+                    <p>
+                        {% if next_blog %}
+                            <a href="{% url 'blog_detail' next_blog.pk %}">下一篇：{{ next_blog }}</a>
+                        {% else %}
+                            没有了
+                        {% endif %}
+                    </p>
+                </div>
 			</div>		
 		</div>
 	</div>

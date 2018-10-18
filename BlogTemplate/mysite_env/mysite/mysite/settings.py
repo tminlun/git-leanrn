@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'zh-Hans'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'UTC'
 
@@ -121,10 +123,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 #静态文件夹路径
 STATIC_URL = '/static/'
-#静态文件夹，可以放很多路径
+#指定额外的静态文件存储位置。
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),#base路径
 ]
+
+MEDIA_URL = '/media/'# 1 url这个路径指向到 MEDIA_ROOT（/：根目录）
+MEDIA_ROOT = os.path.join(BASE_DIR , 'media')# 2 保存到根目录
+CKEDITOR_UPLOAD_PATH = 'upload/' #media/upload 图片放在media/upload里面
 
 #每一页的博客数量 each_page_blog_number
 EACH_PAGE_BLOG_NUMBER = 7
