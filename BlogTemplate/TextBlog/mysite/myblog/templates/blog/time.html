@@ -34,11 +34,11 @@
         {% if page_of_blogs.has_previous %}
             <a href="?page={{ page_of_blogs.previous_page_number }}">上一页</a>&nbsp;
         {% else %}
-            <span>上一页</span>
+            <a title="Total record">上一页 </a>
         {% endif %}
         {% for page in page_range %}
             {% if page == page_of_blogs.number %}
-                <span><b style="color: #3690cf;">{{ page }}</b></span>
+                <span><b style="color: #3690cf;text-shadow: #fff 1px 0 2px, #fff 0 1px 2px, #fff -1px 0 2px, #fff 0 -1px 2px;">{{ page }}</b></span>
             {% else %}
                 {% if page == '...' %}
                     <span>{{ page }}</span>
@@ -50,7 +50,7 @@
         {% if page_of_blogs.has_next %}
             <a href="?page={{ page_of_blogs.next_page_number }}">下一页</a>&nbsp;
         {% else %}
-            <span>下一页</span>
+            <a title="Total record">上一页 </a>
         {% endif %}
         {#  <div class="pagelist"><a title="Total record">&nbsp;<b>160</b> </a>&nbsp;&nbsp;&nbsp;<b>1</b>&nbsp;<a href="/jstt/index_2.html">2</a>&nbsp;<a href="/jstt/index_3.html">3</a>&nbsp;<a href="/jstt/index_4.html">4</a>&nbsp;<a href="/jstt/index_5.html">5</a>&nbsp;<a href="/jstt/index_6.html">6</a>&nbsp;<a href="/jstt/index_2.html">下一页</a>&nbsp;<a href="/jstt/index_14.html">尾页</a></div>#}
 </article>

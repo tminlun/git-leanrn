@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
     'blog',
+    'read_startistics',
+    'comment',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 所有的templates都有效,文件不用加templates,直接使用templates里面的文件
+        # 所有的templates都有效,放在和根目录（DIR）同目录
         'DIRS': [
             os.path.join(BASE_DIR,'templates'),
         ],
@@ -107,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'zh-Hans'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'UTC'
 
@@ -125,6 +129,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
+MEDIA_URL = '/media/'#照片传过来的路径
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')#创建一个父文件
+CKEDITOR_UPLOAD_PATH = 'upload/' #media/upload 子文件放在这里
 
 #每一页的博客数量
 EACK_PAGE_BLOG_NUMBER = 7
+
+#数据库缓存
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}

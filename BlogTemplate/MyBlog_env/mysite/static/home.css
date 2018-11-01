@@ -27,3 +27,9 @@
 	font-weight: 300;
 	line-height: 14px;
 }
+#container{
+	margin: 0 auto;
+}
+.hot-date{
+	text-align: center;
+}

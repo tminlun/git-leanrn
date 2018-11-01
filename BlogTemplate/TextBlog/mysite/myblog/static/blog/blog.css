@@ -31,4 +31,6 @@ div.blog-content{
 .blog_more{
 	margin-top: 1em;
 }
-
+.panel-body{
+	margin-top: 3em;
+}

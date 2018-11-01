@@ -1,7 +1,15 @@
 .home_content{
 	font-size: 222%;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
+	text-align: center;
+	margin: 4em 0 2em 0;
+}
+div#container{
+	margin: 0 auto;
+	height: 20em;
+	min-width: 20em;
+	max-width: 30em;
+}
+div.hot-date{
+	text-align: center;
+	margin-top: 2em;
 }

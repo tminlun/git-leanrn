@@ -22,6 +22,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
     {% endblock %}
 
+
 {% block context %}
 	 <div class="container">
         <div class="row">
@@ -117,21 +118,21 @@
                         </ul>
                     </div>
                 </div>
-                {# 日期归档 #}
-{#                <div class="panel panel-default">#}
-{#                    <div class="panel-heading">日期归档</div>#}
-{#                    <div class="panel-body">#}
-{#                        <ul>#}
-{#                            {% for blog_date,date_count in blog_dates.items %}#}
-{#                                <li>#}
-{#                                    <a href="">#}
-{#                                        {{ blog_date|date:"Y年m月" }}（{{ date_count }}）#}
-{#                                    </a>#}
-{#                                </li>#}
-{#                            {% endfor %}#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                </div>#}
+{#                 日期归档#}
+                <div class="panel panel-default">
+                    <div class="panel-heading">日期归档</div>
+                    <div class="panel-body">
+                        <ul>
+                            {% for blog_date,date_count in blog_date_dict.items %}
+                                <li>
+                                    <a href="{% url 'blog_date' blog_date.year blog_date.month %}">
+                                        {{ blog_date|date:"Y年m月" }}（{{ date_count }}）
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

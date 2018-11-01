@@ -3,7 +3,8 @@
 {% load staticfiles %}
 {% block title %}首页{% endblock %}
 {% block head_extend %}
-<link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
 {% endblock %}
 {% block nav-home-active %}active{% endblock %}
 
@@ -11,13 +12,85 @@
 {% block content %}
 	<div class="jumbotron">
 	  <div class="container">
+{#          <iframe src="//mp4.vjshi.com/2018-10-22/c0abf2b0e4113ad4b91cfc0122de7d2e.mp4" frameborder="0" allowfullscreen></iframe>#}
 	    <h1>Tml Blog</h1>
 	    <p>只为学习，发表个人学习高质量的技术博客</p>
-
 	    <p>田敏伦的博客</p>
 	  </div>
 	</div>
- 
+         <!-- 图表容器 DOM -->
+    <div id="container" style="width: 600px;height:400px;"></div>
+    <div class="hot-date">
+        <h3>今天的热门阅读</h3>
+        <ul>
+            {% for today in today_read %}
+                <li><a href="{% url 'blog_detail' today.content_object.pk %}">{{ today.content_object.title }}</a>（{{ today.read_num }}）</li>
+             {% empty %}
+                <p>今天没有热门阅读哦</p>
+            {% endfor %}
+        </ul>
+        <h3>昨天的热门阅读</h3>
+        <ul>
+            {% for yesterday in yesterday_read %}
+                <li><a href="{% url 'blog_detail' yesterday.content_object.pk %}">{{ yesterday.content_object.title }}</a>（{{ yesterday.read_num }}）</li>
+             {% empty %}
+                <p>昨天没有热门阅读哦</p>
+            {% endfor %}
+        </ul>
+        <h3>7天的热门阅读</h3>
+        <ul>
+            {% for week in get_week_read %}
+                <li><a href="{% url 'blog_detail' week.id %}">{{ week.title }}</a>（{{ week.week_read_sum }}）</li>
+             {% empty %}
+                <p>一周没有热门阅读哦</p>
+            {% endfor %}
+        </ul>
+        </div>
+
+        <script>
+        // 图表配置
+        var options = {
+            chart: {
+                type: 'line'                          //指定图表的类型，默认是折线图（line）
+            },
+            title: {
+                text: null                 // 标题
+            },
+            xAxis: {
+                categories: {{ dates|safe }},  // x 轴分类
+                tickmarkPlacement: 'on',//让月份的值对应到Y轴线上
+                title: { //标题
+                    text: '前七天的阅读变化'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: null                // y 轴标题
+                },
+                labels:{enabled:false}, //去掉y轴值
+                gridLineDashStyle:'Dash'//y轴线为虚线
+            },
+            series: [{                              // 数据列
+                name: '阅读数',                        // 数据列名
+                data: {{ read_nums }}                 // 数据
+            }],
+            //在数据点上显示一些数据信息标签
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                        }
+                    }
+                },
+            //去掉图例
+            legend:{enabled:false},
+            //去掉版权信息
+            credits:{enabled:false}
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('container', options);
+    </script>
+
 
 {% endblock %}
 <!-- 

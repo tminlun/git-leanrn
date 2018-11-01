@@ -16,6 +16,7 @@
 				<ul class="blog-info-description">					
 					<li>发表时间：{{ blog.created_time|date:"Y-m-d" }}</li>
 					<li>作者：{{ blog.author }}</li>
+                    <li>({{ blog.get_read_num }})</li>
 				</ul>
 				<p class="blog-content">{{ blog.content }}</p>
                 <div class="blog-more">
@@ -36,5 +37,14 @@
                 </div>
 			</div>		
 		</div>
+        <div class="row">
+            <div class="col-xs-10 col-md-offset-1">
+                <div style="margin-top: 2em;border: 1px dashed;padding: 2em;">
+                    评论区域
+                    {{ user }}
+                </div>
+                <div style="margin-top: 2em;border: 1px dashed;padding: 2em;">评论列表</div>
+            </div>
+        </div>
 	</div>
 {% endblock %}

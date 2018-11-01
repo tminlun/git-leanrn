@@ -1,18 +1,19 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
-
+from django.contrib.contenttypes.fields import GenericRelation
+from read_statistics.models import ReadNumExtensionMethods,ReadNumDate
+# Create your models here.
 class BlogType(models.Model):
     type_name = models.CharField(max_length=15,verbose_name='类型名称')
 
     def __str__(self):
         return self.type_name
 
-class Blog(models.Model):
+class Blog(models.Model,ReadNumExtensionMethods):
     title = models.CharField(max_length=20,verbose_name='标题')
     content = RichTextUploadingField(verbose_name='内容')
     blog_type = models.ForeignKey(BlogType, on_delete=models.DO_NOTHING,verbose_name='类型')
-    reader_num = models.IntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name='作者')
     created_time = models.DateTimeField(auto_now_add=True,verbose_name='创建时间')
     last_time = models.DateTimeField(auto_now=True,verbose_name='修改时间')

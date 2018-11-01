@@ -1,8 +1,14 @@
 .home_content{
 	font-size: 222%;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	/*实现块元素百分比的居中*/
-	transform: translate(-50%,-50%);
+	text-align: center;
+	margin: 4em 0 2em 0;
+}
+div#container{
+	margin: 0 auto;
+	height: 20em;
+	min-width: 20em;
+	max-width: 30em;
+}
+.hot-date{
+	text-align: center;
 }

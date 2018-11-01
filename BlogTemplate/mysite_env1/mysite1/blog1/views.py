@@ -3,6 +3,8 @@ from django.core.paginator import Paginator
 from django.conf import settings #全局每一页的博客数量
 from .models import Blog1,BlogType
 from django.db.models.aggregates import Count
+from read_statistics.utils import read_statistics_once_read
+from django.contrib.contenttypes.models import ContentType
 
 def get_blog_list_common_data(request, blog_all_list):
     paginator = Paginator(blog_all_list, settings.EACH_PAGE_BLOG_NUMBER)  # 每一页10篇博客
@@ -66,18 +68,7 @@ def blog_dates(request,year,month):
 
 def blog_detail(request,blog_pk):
     blog = get_object_or_404(Blog1, pk = blog_pk) #当前博客
-    # cookies是字典get()是返回指定的键,
-    #如果浏览器没有cookie记录 ,下次更新已经有了就不加一
-    if not request.COOKIES.get('blog_%s_read' %blog_pk):
-        '''#如果ReadNum记录数量
-        if ReadNum.objects.filter(blog=blog).count():
-            readnum = ReadNum.objects.get(blog=blog) #ReadNum对象,可以取到read_num
-        else: #如果没有，实例化一个记录（一一对应）
-            readnum = ReadNum(blog=blog)
-        readnum.read_num += 1
-        readnum.save()
-        '''
-        pass
+    read_cookie_key = read_statistics_once_read(request, blog)
 
     context = {}
     context['blog'] = blog
@@ -86,5 +77,5 @@ def blog_detail(request,blog_pk):
     context['next_blog'] = Blog1.objects.filter(created_time__lt=blog.created_time).first()
     response = render_to_response('blog/blog_detail.html',context)#博客细节发送请求
     # 得到cookie信息（django中为字典）。浏览器把cookie信息传给服务器，true：下次访问标记已经访问过
-    response.set_cookie('blog_%s_read' %blog_pk,'true')
+    response.set_cookie(read_cookie_key, 'true')
     return response#返回给客户端。请求cookie的时候会把有效的cookie提交给服务器，请求包含cookie信息

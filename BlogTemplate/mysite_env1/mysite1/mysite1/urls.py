@@ -20,10 +20,14 @@ from django.conf import settings
 from blog1 import urls
 from . import views
 
+from django.conf import settings
+
 urlpatterns = [
     path('', views.home, name="home"),
     path('admin/', admin.site.urls),
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('blog/',include('blog1.urls')),
+    path('picture/',views.blog_picture,name="picture"),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, coument_root=settings.MEDIA_ROOT)

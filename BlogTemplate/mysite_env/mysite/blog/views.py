@@ -3,6 +3,8 @@ from django.core.paginator import Paginator
 from django.conf import settings
 from .models import Blog,BlogType
 from django.db.models.aggregates import Count
+from read_statistics.utils import read_statistics_once_read
+from django.contrib.contenttypes.models import ContentType
 
 #获取博客列表共同的数据,设置参数blog_all_list全部博客,因为每个方法都有不同的获取方法
 def get_blog_list_common_data(request, blog_all_list):
@@ -66,9 +68,14 @@ def blogs_with_date(request,year,month):
 def blog_detail(request,blog_pk):
     context = {}
     blog = get_object_or_404(Blog, pk = blog_pk)
+   #判断浏览器是否有cookie记录，有不加数，没有加数；get获取字典的key
+    read_cookie_key = read_statistics_once_read(request, blog)
+
     context['blog'] = blog
     #前一篇博客，大于：__gt=
     context['previous_blog'] = Blog.objects.filter(created_time__gt=blog.created_time).last()
     #后一篇博客，小于：__lt=
     context['next_blog'] = Blog.objects.filter(created_time__lt=blog.created_time).first()
-    return render_to_response('blog/blog_detail.html',context)
+    response=render_to_response('blog/blog_detail.html',context)
+    response.set_cookie(read_cookie_key, 'ture') #坑，值 记得填写
+    return response

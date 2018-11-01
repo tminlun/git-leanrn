@@ -1,8 +1,10 @@
 from django.shortcuts import render,render_to_response,get_object_or_404
-from .models import Blog,BlogType
-from django.conf import settings #每一页的博客数量
 from django.core.paginator import Paginator
 from  django.db.models.aggregates import Count
+from django.conf import settings #每一页的博客数量
+from .models import Blog,BlogType
+from read_startistics.utils import read_statistics_once_read
+# Create your views here.
 
 def get_blog_list_common_data(request,blog_all_list):
     # 分页
@@ -29,7 +31,7 @@ def get_blog_list_common_data(request,blog_all_list):
     blog_date_dict = {}
     for blog_date in blog_dates:
         date_count = Blog.objects.filter(created_time__year=blog_date.year,created_time__month=blog_date.month).count()
-        blog_date_dict[blog_date] = date_count #把时间和计数放在字典
+        blog_date_dict[blog_date] = date_count
 
     context = {}
     context['page_of_blogs'] = page_of_blogs
@@ -62,9 +64,13 @@ def blog_date(request,year,month):
 #博客细节,因为每个博客主键不一样，所有要加主键pk来对应自己的pk
 def blog_detail(request,blog_pk):
     context = {}
-    #每个博客主键不唯一,所以每个博客获取到对应的主键
-    blog = get_object_or_404(Blog,pk = blog_pk)
+    blog = get_object_or_404(Blog,pk = blog_pk)#获取指定唯一的元素
+
+    cookie_key = read_statistics_once_read(request, blog)
     context['blog'] = blog
     context['previous_blog'] = Blog.objects.filter(created_time__gt=blog.created_time).last()
     context['next_blog'] = Blog.objects.filter(created_time__lt=blog.created_time).first()
-    return render_to_response('blog/blog_detail.html',context)
+    context['user']  = request.user
+    response =  render_to_response('blog/blog_detail.html',context)
+    response.set_cookie(cookie_key, 'true') #记得写值（true）
+    return response

@@ -22,9 +22,9 @@
 {% endblock %}
 
 {% block context %}
-    <article>
+    <article style="margin-top: 5em">
   <main>
-    <div class="place" id="pageContents"> <a href="#">慢生活</a><a href="/">美文欣赏</a></div>
+    <div class="place" id="pageContents"> <a href="#">慢生活</a><a href="/">学习笔记</a></div>
     <script language="javascript">
 var obj=null;
 var As=document.getElementById('pageContents').getElementsByTagName('a');
@@ -35,14 +35,14 @@ obj.id='pagecurrent'
 </script>
       {% for blog in blogs %}
             <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
-              <h3 class="blogtitle"><a href="{% url 'info' blog.pk %}" target="_blank">{{ blog.title }}</a></h3>
+              <h3 class="blogtitle"><a href="{% url 'info' blog.pk %}">{{ blog.title }}</a></h3>
               <p class="blogtext">{{ blog.content|safe|striptags }} </p>
               <div class="bloginfo">
                 <ul>
-                  <li class="author"><a href="/">{{ blog.author }}</a></li>
-                  <li class="lmname"><a href="/">{{ blog.blog_type }}</a></li>
-                  <li class="timer">{{ blog.created_time }}</li>
-{#                  <li class="view"><span></span>已阅读</li>#}
+                  <li class="author">{{ blog.author }}</li>
+                  <li class="lmname"><a href="{% url 'blog_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a></li>
+                  <li class="timer"><a href=""></a>{{ blog.created_time }}</li>
+                  <li class="view"><span>{{ blog.get_read_num }}人</span>已阅读</li>
 {#                  <li class="like">2</li>#}
                 </ul>
               </div>
@@ -72,11 +72,11 @@ obj.id='pagecurrent'
         {% if page_of_blogs.has_previous %}
             <a href="?page={{ page_of_blogs.previous_page_number }}">上一页</a>&nbsp;
         {% else %}
-            <span>上一页</span>
+            <a title="Total record">上一页 </a>
         {% endif %}
         {% for page in page_range %}
             {% if page == page_of_blogs.number %}
-                <span><b style="color: #3690cf;">{{ page }}</b></span>
+                <span><b style="color: #3690cf;text-shadow: #fff 1px 0 2px, #fff 0 1px 2px, #fff -1px 0 2px, #fff 0 -1px 2px;">{{ page }}</b></span>
             {% else %}
                 {% if page == '...' %}
                     <span>{{ page }}</span>
@@ -88,54 +88,56 @@ obj.id='pagecurrent'
         {% if page_of_blogs.has_next %}
             <a href="?page={{ page_of_blogs.next_page_number }}">下一页</a>&nbsp;
         {% else %}
-            <span>下一页</span>
+            <a title="Total record">上一页 </a>
         {% endif %}
 
     {#        <a href="?page={{ page_of_blogs.paginator.num_pages }}">尾页</a></div>#}
   </main>
   <aside class="r_box" >
-      <div class="wdxc">
-        <h2>图文精选</h2>
-        <ul>
-          <li><a href="/"><img src="../../../static/images/7.jpg"></a></li>
-          <li><a href="/"><img src="../../../static/images/8.jpg"></a></li>
-          <li><a href="/"><img src="../../../static/images/9.jpg"></a></li>
-          <li><a href="/"><img src="../../../static/images/10.jpg"></a></li>
-          <li><a href="/"><img src="../../../static/images/11.jpg"></a></li>
-          <li><a href="/"><img src="../../../static/images/12.jpg"></a></li>
-        </ul>
-      </div>
+{#      <div class="wdxc">#}
+{#        <h2>图文精选</h2>#}
+{#        <ul>#}
+{#          <li><a href="/"><img src="../../../static/images/7.jpg"></a></li>#}
+{#          <li><a href="/"><img src="../../../static/images/8.jpg"></a></li>#}
+{#          <li><a href="/"><img src="../../../static/images/9.jpg"></a></li>#}
+{#          <li><a href="/"><img src="../../../static/images/10.jpg"></a></li>#}
+{#          <li><a href="/"><img src="../../../static/images/11.jpg"></a></li>#}
+{#          <li><a href="/"><img src="../../../static/images/12.jpg"></a></li>#}
+{#        </ul>#}
+{#      </div>#}
       <div class="cloud">
         <h2>标签云</h2>
         <ul>
-          <a href="/">陌上花开</a> <a href="/">校园生活</a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/">青春</a> <a href="/">温暖</a> <a href="/">阳光</a> <a href="/">三星</a><a href="/">索尼</a> <a href="/">华维荣耀</a> <a href="/">三星</a> <a href="/">索尼</a>
+          {% for blog_type in blog_types %}
+              <a href="{% url 'blog_type' blog_type.pk %}">{{ blog_type }}</a>
+          {% endfor %}
         </ul>
       </div>
-      <div class="tuijian">
-        <h2 id="tab"><a href="#"class="current">点击排行</a><a href="#">站长推荐</a></h2>
-        <div id="content">
-          <ul style="display:block;">
-            <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
-            <li><a href="/">【活动作品】柠檬绿兔小白个人博客模板</a></li>
-            <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
-            <li><a href="/">2014年度优秀个人博客评选活动</a></li>
-            <li><a href="/">你是什么人便会遇上什么人</a></li>
-            <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
-            <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
-            <li><a href="/">个人博客模板《绅士》后台管理</a></li>
-          </ul>
-          <ul>
-            <li><a href="/">个人博客，我为什么要用帝国cms？</a></li>
-            <li><a href="/">D设计师博客-一个热爱生活的设计师</a></li>
-            <li><a href="/">东轩博客，我看到了你的坚持！</a></li>
-            <li><a href="/">程序员创业，就得“豁得出去”！</a></li>
-            <li><a href="/">张建华 一个90后年轻站长！我们是对手亦是朋友！</a></li>
-            <li><a href="/">《奋斗电商》看知名微商如何做博客引流？</a></li>
-            <li><a href="/">《寻之旅》一个关于旅游，游记的个人博客</a></li>
-            <li><a href="/">【匆匆那些年】总结个人博客经历的这四年</a></li>
-          </ul>
-        </div>
-      </div>
+{#      <div class="tuijian">#}
+{#        <h2 id="tab"><a href="#"class="current">点击排行</a><a href="#">站长推荐</a></h2>#}
+{#        <div id="content">#}
+{#          <ul style="display:block;">#}
+{#            <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>#}
+{#            <li><a href="/">【活动作品】柠檬绿兔小白个人博客模板</a></li>#}
+{#            <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>#}
+{#            <li><a href="/">2014年度优秀个人博客评选活动</a></li>#}
+{#            <li><a href="/">你是什么人便会遇上什么人</a></li>#}
+{#            <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>#}
+{#            <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>#}
+{#            <li><a href="/">个人博客模板《绅士》后台管理</a></li>#}
+{#          </ul>#}
+{#          <ul>#}
+{#            <li><a href="/">个人博客，我为什么要用帝国cms？</a></li>#}
+{#            <li><a href="/">D设计师博客-一个热爱生活的设计师</a></li>#}
+{#            <li><a href="/">东轩博客，我看到了你的坚持！</a></li>#}
+{#            <li><a href="/">程序员创业，就得“豁得出去”！</a></li>#}
+{#            <li><a href="/">张建华 一个90后年轻站长！我们是对手亦是朋友！</a></li>#}
+{#            <li><a href="/">《奋斗电商》看知名微商如何做博客引流？</a></li>#}
+{#            <li><a href="/">《寻之旅》一个关于旅游，游记的个人博客</a></li>#}
+{#            <li><a href="/">【匆匆那些年】总结个人博客经历的这四年</a></li>#}
+{#          </ul>#}
+{#        </div>#}
+{#      </div>#}
       <div class="guanzhu">
         <h2>关注我 么么哒</h2>
         <ul>
