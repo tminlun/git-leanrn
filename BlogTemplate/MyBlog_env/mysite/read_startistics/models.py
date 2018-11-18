@@ -11,6 +11,10 @@ class ReadNum(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
+    class Meta:
+        verbose_name="具体哪一篇的阅读数量"
+        verbose_name_plural="具体哪一篇的阅读数量"
+
 #日期版热门阅读
 class ReadNumDate(models.Model):
     date = models.DateField(default=timezone.now)
@@ -18,6 +22,10 @@ class ReadNumDate(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.DO_NOTHING)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
+
+    class Meta:
+        verbose_name="热门阅读"
+        verbose_name_plural="热门阅读"
 
 class ReadNumExtensionMethods: #阅读扩展方法
     def get_read_num(self):

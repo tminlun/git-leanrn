@@ -26,3 +26,10 @@ div.blog-content{/*内容首行缩进*/
 .blog-more{
 	margin-top: 1em;
 }
+.comment-area{
+	margin-top: 2em;
+}
+.comment-area-title{
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 0.4em;
+}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block title %}错误{% endblock %}
+
+{% block nav-home-active %}active{% endblock %}
+
+
+{% block content %}
+    {{ mag }}，<a href="{{ redirect_to }}">返回上一级</a>
+{% endblock %}

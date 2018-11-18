@@ -9,6 +9,10 @@ class BlogType(models.Model):
 
     def __str__(self):#不加只能显示出对象,不能显示类型名
         return self.type_name
+
+    class Meta:
+        verbose_name="博客类型"
+        verbose_name_plural="博客类型"
     # def blog_count(self):
     #     return self.blog_set.all().count()
 
@@ -26,3 +30,5 @@ class Blog(models.Model,ReadNumExtensionMethods):
     #倒序博客
     class Meta:
         ordering = ['-created_time',]
+        verbose_name="博客"
+        verbose_name_plural="博客"

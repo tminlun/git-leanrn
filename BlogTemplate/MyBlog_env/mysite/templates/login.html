@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block title %}我的网站|登录{% endblock %}
+{% block head_extend %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+
+{% block nav-home-active %}active{% endblock %}
+
+
+{% block content %}
+    <div class="containter">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">登录</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {% for field in login_form %}
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>{# 去掉： #}
+                                {{ field }}{# input #}
+                                <p class="text-danger">{{ field.errors.as_text }}</p>{# 错误提示 #}
+                            {% endfor %}
+                            <span class="pull-left text-danger error">{{ login_form.non_field_errors }}</span>
+                            <input type="submit" value="login" class="btn btn-primary pull-right">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

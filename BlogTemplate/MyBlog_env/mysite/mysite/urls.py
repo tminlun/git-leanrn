@@ -18,6 +18,7 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from blog import urls
+from comment import urls
 from . import views
 
 urlpatterns = [
@@ -25,5 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('blog/',include('blog.urls')),
+    path('login/',views.Login, name="login"),
+    path('register/',views.register, name="register"),
+    path('comment/',include('comment.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root = settings.MEDIA_ROOT)

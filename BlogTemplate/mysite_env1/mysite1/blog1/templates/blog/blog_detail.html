@@ -38,5 +38,43 @@
                 </div>
 			</div>
 		</div>
+        <div class="row">
+            <div class="col-md-offset-1 col-xs-10">
+                <div class="comment-area">
+                    <h3 class="comment-area-title">评论区</h3>
+                    {% if user.is_authenticated %} {# 如果登录 #}
+                        {# 评论 #}
+                        <form action="{% url 'update_comment' %}" method="post" style="overflow: hidden;">
+                            {% csrf_token %}
+                             <div class="form-group">
+                                 <label for="comment-text">{{ user.username }},欢迎评论</label>
+                                <textarea id="comment-text" class="form-control" name="text" rows="4"></textarea>
+                                 <p>{{ msg }}</p>
+                              </div>
+                            {# 把当前的类型（模型的小写）和id传给后端的Content #}
+                            <input type="hidden" name="content_type" value="blog1">
+                            <input type="hidden" name="object_id" value="{{ blog.pk }}">
+                            <input class="btn btn-primary" type="submit"  value="评论" style="float: right;">
+                        </form>
+                    {% else %} {# 如果没有登录 #}
+                        您尚未登录
+                        <a class="btn btn-primary"  href="{% url 'login' %}?from={{ request.get_full_path }}">登录</a>
+                        <span>or</span>
+                        <a class="btn btn-danger"  href="{% url 'registered' %}?from={{ request.get_full_path }}">注册</a>
+                    {% endif %}
+                </div>
+                <div class="comment-area">
+                    <h3 class="comment-area-title">评论列表 </h3>
+                    {% for comment in comments%}
+                        <div>
+                            {{ comment.comment_user }}（{{ comment.comment_time }}）：
+                            {{ comment.context }}
+                        </div>
+                    {% empty %}
+                        <p>暂无评论</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 	</div>
 {% endblock %}

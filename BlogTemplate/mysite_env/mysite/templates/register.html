@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}注册{% endblock %}
+{% block nav_blog_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block head_extends %}
+
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+     <div class="containter">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">注册</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="" method="post">
+
+{#                            {% for field in register_form %}#}
+{#                                <label for="{{ field.id_for.label}}">{{ field.label }}</label>#}
+{#                                {{ field }}#}
+{#                                <p class="text-danger">{{ field.errors.as_text }}</p>#}
+{#                            {% endfor %}#}
+{#                            <span class="pull-left text-danger error">{{ register_form.non_field_errors }}</span>#}
+{#                            <input type="submit" class="btn btn-primary pull-right">#}
+                            {% csrf_token %}
+                            <label for="id_username">账号</label>
+                            <input type="text" required placeholder="用户名" name="username" class="form-control"><br>
+
+                            <label for="id_email">邮箱</label>
+                            <input type="email" required placeholder="邮箱" name="email" class="form-control">
+
+                            <label for="id_password">密码</label>
+                            <input type="password" required placeholder="密码" name="password" class="form-control">
+
+                            <label for="id_password_again">确认密码</label>
+                            <input type="password" required placeholder="确认密码" name="password_again" class="form-control">
+
+{#                            <span class="pull-left text-danger error">{{ field.errors }}</span><br>#}
+                            <input type="submit" value="登录" class="btn btn-primary pull-right">
+                        </form>
+                        <p class="pull-left text-danger error">
+                            {# 自带的验证 #}
+                            {% for k,v in  register_form.errors.items %}
+                                    {{ v }}
+                            {% endfor %}
+                        {{ msg }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

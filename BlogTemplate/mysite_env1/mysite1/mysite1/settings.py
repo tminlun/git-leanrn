@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'blog1',
     'read_statistics',
+    'comment',
+    'weather',
 ]
 
 MIDDLEWARE = [

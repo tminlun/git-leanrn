@@ -1,10 +1,12 @@
-from django.shortcuts import render_to_response,get_object_or_404
+from django.shortcuts import render,get_object_or_404
 from django.core.paginator import Paginator
 from django.conf import settings #全局每一页的博客数量
-from .models import Blog1,BlogType
 from django.db.models.aggregates import Count
-from read_statistics.utils import read_statistics_once_read
 from django.contrib.contenttypes.models import ContentType
+from read_statistics.utils import read_statistics_once_read
+from comment.models import Comment
+from .models import Blog1,BlogType
+from comment.models import Comment
 
 def get_blog_list_common_data(request, blog_all_list):
     paginator = Paginator(blog_all_list, settings.EACH_PAGE_BLOG_NUMBER)  # 每一页10篇博客
@@ -51,31 +53,35 @@ def blog_list(request):
     blog_all_list = Blog1.objects.all()
     # 返回字典(blog_types,page_of_blogs, ... ,blog_dates)给模板
     context = get_blog_list_common_data(request, blog_all_list)
-    return render_to_response('blog/blog_list.html', context)
+    return render(request,'blog/blog_list.html', context)
 
 def blogs_with_type(request, type_pk):
     blog_type = get_object_or_404(BlogType, pk=type_pk)#获取到models/BlogType/type_name
     blog_all_list = Blog1.objects.filter(blog_type=blog_type)#把models/type_name筛选给models/Blog/blog_type
     context = get_blog_list_common_data(request, blog_all_list)
     context['blog_type'] = blog_type  # 把获取到的类型 对象 传入字典
-    return render_to_response('blog/blogs_with_type.html',context)
+    return render(request,'blog/blogs_with_type.html',context)
 
 def blog_dates(request,year,month):
     blog_all_list = Blog1.objects.filter(created_time__year=year, created_time__month=month)
     context = get_blog_list_common_data(request, blog_all_list)
     context['blog_current_date'] = '%s年%s月' % (year,month)
-    return render_to_response('blog/blog_dates.html', context)
+    return render(request,'blog/blog_dates.html', context)
 
 def blog_detail(request,blog_pk):
     blog = get_object_or_404(Blog1, pk = blog_pk) #当前博客
     read_cookie_key = read_statistics_once_read(request, blog)
+    blog_content_type = ContentType.objects.get_for_model(blog)
+    comments = Comment.objects.filter(content_type=blog_content_type,object_id=blog.pk)
 
     context = {}
     context['blog'] = blog
     #上一篇博客和下一篇博客
     context['previous_blog'] = Blog1.objects.filter(created_time__gt=blog.created_time).last()#前一篇博客
     context['next_blog'] = Blog1.objects.filter(created_time__lt=blog.created_time).first()
-    response = render_to_response('blog/blog_detail.html',context)#博客细节发送请求
+    context['user'] = request.user
+    context['comments'] = comments
+    response = render(request,'blog/blog_detail.html',context)#博客细节发送请求
     # 得到cookie信息（django中为字典）。浏览器把cookie信息传给服务器，true：下次访问标记已经访问过
     response.set_cookie(read_cookie_key, 'true')
     return response#返回给客户端。请求cookie的时候会把有效的cookie提交给服务器，请求包含cookie信息

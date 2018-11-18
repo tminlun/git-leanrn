@@ -1,11 +1,15 @@
 import datetime
-from django.shortcuts import render_to_response
+from django.shortcuts import render,redirect
 from django.contrib.contenttypes.models import ContentType
 from django.utils import timezone
 from django.db.models import Sum
 from django.core.cache import cache
+from django.contrib.auth import authenticate, login
+from django.urls import reverse
+from django.contrib.auth.models import User
 from read_startistics.utils import read_seven_day, popular_reading
 from blog.models import Blog
+from .forms import LoginForm,RegisterForm
 
 def get_week_read():
     today = timezone.now().date()
@@ -35,4 +39,41 @@ def home(request):
     context['today_read'] = today_read
     context['yesterday_read'] = yesterday_read
     context['get_week_read'] = get_week_read
-    return render_to_response('home.html',context)
+    return render(request,'home.html',context)
+
+def Login(request):
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST)#生成post的表单
+        if login_form.is_valid(): #如果表单是规范的
+            user = login_form.cleaned_data['user']
+            login(request, user) #给他登录
+            # 定向到上一级页面参数（网址）, 否则reverse返回一个网址: 参数是url.py的path的name
+            return redirect(request.GET.get('from', reverse('home')))
+    else: #GET
+        login_form = LoginForm()
+    return render(request, 'login.html',{
+        'login_form': login_form,
+    })
+
+#注册
+def register(request):
+    if request.method == 'POST':
+        register_form = RegisterForm(request.POST)
+        #如果表单通过
+        if register_form.is_valid():
+            username = register_form.cleaned_data['username']
+            email = register_form.cleaned_data['email']
+            password = register_form.cleaned_data['password']
+            user = User.objects.create_user(username, email, password)#实例化一个user
+            user.save()#保存用户
+            #注册完直接登录用户
+            user = authenticate(username=username, password=password) #验证密码账号是否正确
+            login(request, user)
+            return redirect(request.GET.get('from', reverse('home'))) #重定向以前的页面
+
+    else:
+        register_form = RegisterForm()
+    return render(request, 'register.html', {
+        'register_form': register_form,
+    })
+

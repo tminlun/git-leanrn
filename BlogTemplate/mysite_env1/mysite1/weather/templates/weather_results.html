@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block nav_weather_active %}active{% endblock %}
+
+{% block head_extends %}
+    <link rel="stylesheet" href="{% static 'weather.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Regular Weather Report template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" type="text/css" media="all">
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+<link href='//fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!-- //web font -->
+<!-- js -->
+<script src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-1.9.1.min.js' %}js/owl.carousel.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#owl-demo").owlCarousel({
+
+		  autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+		  items : 6,
+		  itemsDesktop : [640,5],
+		  itemsDesktopSmall : [414,4]
+
+		});
+
+	});
+</script>
+<!-- //js -->
+{% endblock %}
+{% block content %}
+{# 1 #}
+    <!-- main -->
+    <div style="margin-right: 4em;">
+		<form action="{% url 'weather' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group" style="font-size: 30px;float: right;">
+{#                        <label for="exampleInputEmail1" style="color: #ccc;white-space: nowrap;">查询天气</label>#}
+                        <input type="text" name="city" class="form-control" id="exampleInputEmail1"  required placeholder="搜索市、区、县等" style="max-width:411px;min-width: 151px;">
+                        <input type="submit" value="查询" class="btn btn-primary " style="position: relative;top: -3em;">
+                    </div>
+                </form>
+    </div>
+
+	<div class="main" onload="startTime()">
+		<div class="main-wthree-row">
+			<div class="agileits-top">
+				<div class="agileinfo-top-row">
+					<div class="agileinfo-top-img">
+						<span style="margin-top: 2em;margin-left: 3px;"><img src="{{ today_weather.Picture }}" style="width: 100px;height: 80px; border-radius: 50%;">
+                        </span>
+
+					</div>
+					<h3>{{ today_weather.temperature }}<sup class="degree"></sup><span></span></h3>
+                        <span style="color: #f0c674;font-size: 20px;font-weight: bold;">{{ today_weather.weather }}<span>
+                        <span></span>
+					<p><span class="glyphicon glyphicon-map-marker"></span>{{ today_weather.currentCity }}</p>
+					<div class="agileinfo-top-time">
+						<div class="date-time">
+							<div class="dmy">
+								<div id="txt"></div>
+								<div class="date">
+									<!-- Date-JavaScript -->
+									<script type="text/javascript">
+									var mydate=new Date()
+									var year=mydate.getYear()
+									if(year<1000)
+									year+=1900
+									var day=mydate.getDay()
+									var month=mydate.getMonth()
+									var daym=mydate.getDate()
+									if(daym<10)
+									daym="0"
+									var dayarray=new Array("周日","星期一","星期二","星期三","星期四","星期五","星期六")
+									var montharray=new Array("1月份","2月","3月","4月","5月","6月","7月","8月","9月","10月r","11月","12月")
+									document.write(""+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+"")
+									</script>
+									<!-- //Date-JavaScript -->
+								</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w3ls-bottom">
+                PM25：{{ today_weather.pm25 }}
+				<div id="owl-demo" class="owl-carousel owl-theme">
+					<div class="item">
+						<div class="biseller-column">
+							<p>10AM</p>
+							<a class="lightbox" href="#">
+								<img src="images/1.png" alt=""/>
+							</a>
+							<p>20<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>11AM</p>
+							<a class="lightbox" href="#">
+								<img src="images/1.png" alt=""/>
+							</a>
+							<p>22<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>12PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/2.png" alt=""/>
+							</a>
+							<p>22<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>1PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/3.png" alt=""/>
+							</a>
+							<p>24<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>2PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/4.png" alt=""/>
+							</a>
+							<p>23<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p> 3PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/4.png" alt=""/>
+							</a>
+							<p>22<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>4PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/2.png" alt=""/>
+							</a>
+							<p>20<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>5PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/2.png" alt=""/>
+							</a>
+							<p>20<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>6PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/1.png" alt=""/>
+							</a>
+							<p>20<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>7PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/1.png" alt=""/>
+							</a>
+							<p>20<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>8PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/1.png" alt=""/>
+							</a>
+							<p>20<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>9PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/1.png" alt=""/>
+							</a>
+							<p>20<sup class="degree">°</sup></p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="biseller-column">
+							<p>10PM</p>
+							<a class="lightbox" href="#">
+								<img src="images/1.png" alt=""/>
+							</a>
+							<p>20<sup class="degree">°</sup></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w3ls-bottom2">
+				<div class="ac-container">
+					<input id="ac-1" name="accordion-1" type="checkbox" />
+					<label for="ac-1" class="grid1"> 后三天的天气</label>
+					<article class="ac-small">
+						<div class="wthree-grids">
+                            {# 周天气 #}
+                        <div class="wthree-grids-row">
+								<ul class="top">
+                                    {% for future_weather in future_weather  %}
+                                    <p style="background-color: #fff;">
+                                        <li>{{ future_weather.data }} </li>
+                                        <li class="wthree-img"><img src="{{ future_weather.Picture }}" alt=""/> </li>
+                                        <li class="wthree-temp"> {{ future_weather.temperature }} <sup class="degree"></sup></li>
+                                        <li class="wthree-temp">{{ future_weather.the_weather }} <sup class="degree"></sup></li>
+                                        <hr>
+                                    </p>
+                                    {% endfor %}
+                                </ul>
+								<div class="clear"> </div>
+							</div>
+
+{#                        {% if not forloop.first %} {#去掉第一条#}
+{#                            <div class="week">{{ weather.date }}</div>{# 星期几 #}
+{#                            <img src="{{ weather.dayPictureUrl }}">#}
+{#                            <div class="degree">{{ weather.temperature }}</div>{# 度数 #}
+{#                            <div class="weather">{{ weather.weather }}</div>{# 天气 #}
+{#                         {% endif %}#}
+                        {# /周天气 #}
+
+
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //main -->
+	<!-- copyright -->
+	<div class="copyright">
+{#		<p> © 2016 Regular Weather Report . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>#}
+	</div>
+	<!-- //copyright -->
+	<!-- Time-JavaScript -->
+	<script>
+		function startTime() {
+			var today = new Date();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m);
+			s = checkTime(s);
+			document.getElementById('txt').innerHTML =
+			h + ":" + m + ":" + s;
+			var t = setTimeout(startTime, 500);
+			}
+			function checkTime(i) {
+			if (i < 10) {i = "0" + i}; // add zero in front of numbers < 10
+			return i;
+		}
+	</script>
+	<!-- //Time-JavaScript -->
+{% endblock %}

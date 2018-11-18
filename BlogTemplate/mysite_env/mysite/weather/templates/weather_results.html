@@ -1,0 +1,20 @@
+{% extends 'weather.html' %}
+
+{% block weather-api %}
+    {# 如果错误 #}
+    {% if error %}
+        {{ error }}
+    {% else %}
+        {{ result.currentCity }}
+        <p>PM25：{{ result.pm25 }}</p>
+        {# <p>建议：{{ index }}</p>#}
+        {% for weather in result.weather_data %}
+        {# % if not forloop.first %} 去掉第一条#}
+                <div class="week">{{ weather.date }}</div>
+                <img src="{{ weather.dayPictureUrl }}">
+                <div class="temper">{{ weather.temperature }}</div>
+                <div class="weather">{{ weather.weather }}</div>
+        {#{% endif %}#}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

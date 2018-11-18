@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
-from blog1 import urls
 from . import views
+from weather.views import DelWeather
 
-from django.conf import settings
+
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -28,6 +28,10 @@ urlpatterns = [
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('blog/',include('blog1.urls')),
     path('picture/',views.blog_picture,name="picture"),
-
+    path('login/',views.login,name="login"),
+    path('registered/',views.registered, name="registered"),
+    path('comment/',include('comment.urls')),
+    path('weather/',include('weather.urls')),
+    path('del',DelWeather,name="del"),
 ]
 urlpatterns += static(settings.MEDIA_URL, coument_root=settings.MEDIA_ROOT)
