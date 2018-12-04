@@ -23,9 +23,12 @@
                             {% for field in login_form %}
                                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>{# 去掉： #}
                                 {{ field }}{# input #}
-                                <p class="text-danger">{{ field.errors.as_text }}</p>{# 错误提示 #}
+                                {# <p class="text-danger">{{ field.errors.as_text }}</p>{# 错误提示 #}
                             {% endfor %}
-                            <span class="pull-left text-danger error">{{ login_form.non_field_errors }}</span>
+                            {% for k,v in login_form.errors.items %}
+                                <span class="pull-left text-danger error">{{ v }}</span>
+                            {% endfor %}
+                            {# <span class="pull-left text-danger error">{{ login_form.non_field_errors }}</span>#}
                             <input type="submit" value="login" class="btn btn-primary pull-right">
                         </form>
                     </div>

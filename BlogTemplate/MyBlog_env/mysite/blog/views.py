@@ -4,14 +4,16 @@ from  django.db.models.aggregates import Count
 from django.conf import settings #每一页的博客数量
 from django.contrib.contenttypes.models import ContentType
 from comment.models import Comment
-from .models import Blog,BlogType
 from read_startistics.utils import read_statistics_once_read
+from comment.forms import CommentForm
+from .models import Blog,BlogType
+
 # Create your views here.
 
 def get_blog_list_common_data(request,blog_all_list):
     # 分页
     paginator = Paginator(blog_all_list, settings.EACK_PAGE_BLOG_NUMBER)  # 每页10篇
-    page_num = request.GET.get('page', 1)  # 获取页码,参数设置成page
+    page_num = request.GET.get('page', 1)  # 获取page后面页码（?page={{ page_num }}）,默认显示第一页
     page_of_blogs = paginator.get_page(page_num)  # 页码，解析页码内容
     current_page_num = page_of_blogs.number  # 当前页面
     page_range = list(range(max(current_page_num - 2, 1), current_page_num)) + \
@@ -74,8 +76,9 @@ def blog_detail(request,blog_pk):
     context['blog'] = blog
     context['previous_blog'] = Blog.objects.filter(created_time__gt=blog.created_time).last()
     context['next_blog'] = Blog.objects.filter(created_time__lt=blog.created_time).first()
-    context['user']  = request.user
+    context['user'] = request.user
     context['comments'] = comments
-    response =  render(request,'blog/blog_detail.html',context)
+    context['comment_form'] = CommentForm(initial={'content_type':blog_content_type.model,'object_id':blog.pk})#initial初始化
+    response = render(request,'blog/blog_detail.html',context)
     response.set_cookie(cookie_key, 'true') #记得写值（true）
     return response

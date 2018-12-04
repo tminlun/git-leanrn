@@ -36,6 +36,7 @@ def blog_picture(request):
 	return render(request,'index.html',context)
 
 def login(request):
+
 	if request.method == 'POST':
 		login_form = LoginForm(request.POST)
 		if login_form.is_valid():
@@ -43,8 +44,8 @@ def login(request):
 			password = login_form.cleaned_data['password']
 			user = auth.authenticate(username=username, password=password) #后台是否有此账号密码
 			if user is not None:
-				auth.login(request,user)
-				return redirect(request.GET.get('next', reverse('home')))
+				auth.login(request, user)
+				return redirect(request.GET.get('from', reverse('home')))
 			else:
 				return render(request, 'login.html', {
 					'login_form': login_form,

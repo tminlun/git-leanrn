@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'#亚洲:上海
 
 USE_I18N = True
 
@@ -132,6 +132,25 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'#照片传过来的路径
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')#创建一个父文件
 CKEDITOR_UPLOAD_PATH = 'upload/' #media/upload 子文件放在这里
+
+CKEDITOR_CONFIGS = {
+    'default': {},
+    'comment_ckeditor': {
+        'toolbar': 'custom', #工具栏位置
+        'toolbar_custom': [
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+            ["TextColor", 'BGColor', 'RemoveFormat'],
+            ["Link", 'Unlink'],
+            ["Smiley", 'SpecialChar'],#,'Blockquote'：块引用
+        ],
+        'width': 'auto',#宽度
+        'height': '180',#高度
+        'tabSpaces': 4,#tab
+        'removePlugins': 'elementspath',#去掉底部
+        'resize_enabled': False,
+
+    }
+}
 
 #每一页的博客数量
 EACK_PAGE_BLOG_NUMBER = 7

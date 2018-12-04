@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))#在我的项目里面添加apps来管理所有的apps
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -61,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [ 
-            os.path.join(BASE_DIR,'templates'),
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -128,12 +129,31 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #指定额外的静态文件存储位置。
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),#base路径
+    os.path.join(BASE_DIR, 'static'),#base路径
 ]
 
 MEDIA_URL = '/media/'# 1 url这个路径指向到 MEDIA_ROOT（/：根目录）
-MEDIA_ROOT = os.path.join(BASE_DIR , 'media')# 2 保存到根目录
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')# 2 保存到根目录
 CKEDITOR_UPLOAD_PATH = 'upload/' #media/upload 图片放在media/upload里面
+
+CKEDITOR_CONFIGS = {
+    'default': {},
+    'comment_ckeditor':{
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+            ["TextColor", 'BGColor', 'RemoveFormat'],
+            ["Link", 'Unlink'],
+            ["Smiley", 'SpecialChar'],  # ,'Blockquote'：块引用
+        ],
+        'width': 'auto',  # 宽度
+        'height': '180',  # 高度
+        'tabSpaces': 4,  # tab
+        'removePlugins': 'elementspath',  # 去掉底部
+        'resize_enabled': False,
+    }
+}
+
 
 #每一页的博客数量 each_page_blog_number
 EACH_PAGE_BLOG_NUMBER = 7

@@ -1,0 +1,50 @@
+ul{
+    list-style: none;
+}
+div.blog:not(:last-child){/*不装饰最后一个*/
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #eee;
+}
+.blog h3{
+	margin-top: 0.5em;
+}
+div.blog p.blog-info{
+	margin: 0;
+}
+.paginator{
+	text-align: center;
+}
+ul.blog-info-description{
+	margin-bottom: 1em;
+}
+ul.blog-info-description li{
+	display: inline-block;
+	margin-right: 2em;
+}
+div.blog-content{
+	text-indent: 2em;
+}
+.blog_more{
+	margin-top: 1em;
+}
+.comment-area{
+	margin-top: 2em;
+}
+.comment-area-title{
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 0.4em;
+}
+.emojione{
+	display: block;
+	font-size: inherit;
+    height: 2ex;
+    width: 2.1ex;
+    min-height: 20px;
+    min-width: 20px;
+    margin: -.2ex .15em .2ex;
+    line-height: normal;
+    vertical-align: middle;
+    max-width: 100%;
+    top: 0;
+}

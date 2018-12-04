@@ -8,7 +8,7 @@ class LoginForm(forms.Form):
                                widget=forms.TextInput(attrs={
                                    'class': 'form-control', 'placeholder': '请输入账号',
                                }))#必须输入
-    password = forms.CharField(label='密码',required=True,
+    password = forms.CharField(min_length=6,label='密码',required=True,
                                widget=forms.PasswordInput(attrs={
                                      'class': 'form-control','placeholder': '请输入密码',
     }))

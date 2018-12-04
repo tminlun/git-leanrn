@@ -49,6 +49,7 @@ def Login(request):
             login(request, user) #给他登录
             # 定向到上一级页面参数（网址）, 否则reverse返回一个网址: 参数是url.py的path的name
             return redirect(request.GET.get('from', reverse('home')))
+        raise login_form.add_error(True, '输入不规范')#form表单的错误
     else: #GET
         login_form = LoginForm()
     return render(request, 'login.html',{

@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block title %}{{ blog.title }}{% endblock %}
+{% block nav_blog_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block head_extends %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/../../static/blog/blog.css' %}">
+        <script type="text/javascript" src="{% static 'js/../../static/js/jquery-1.11.3.min.js' %}"></script>
+
+        <!--emojione v2.1.1 使用bootstrap的cdn-->
+        <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/emojione/2.1.1/assets/sprites/emojione.sprites.css">
+        <script type="text/javascript" src="http://cdn.bootcss.com/emojione/2.1.1/lib/js/emojione.min.js"></script>
+
+        <!--emojionearea-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/../../static/css/emojionearea-2.1.3.min.css' %}">
+        <script type="text/javascript" src="{% static 'js/../../static/js/emojionearea-2.1.3.min.js' %}"></script>
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-md-offset-1">
+                    <h3>{{ blog.title }}</h3>
+                    <ul class="blog-info-description">
+                        <li>作者：{{ blog.author }}</li>
+                        <li>发表日期：{{ blog.created_time|date:"Y-m-d H:i:s" }}</li>
+                        <li>分类：
+                            <a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a>
+                        </li>
+                        <li>阅读（{{ blog.get_read_num }}）</li>
+                    </ul>
+                    <div class="blog-content">{{ blog.content|safe }}</div>
+                    <div class="blog_more">
+                        <p>
+                            {% if previous_blog %} {# 如果有上一篇 #}
+                                <a href="{% url 'blog_detail' previous_blog.pk %}">上一篇：{{ previous_blog.title }}</a>
+                            {% else %} {# 没有上一篇提示没有 #}
+                                没有了
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if next_blog %}
+                                <a href="{% url 'blog_detail' next_blog.pk %}">下一篇：{{ next_blog.title }}</a>
+                            {% else %}
+                                没有咯
+                            {% endif %}
+                        </p>
+                    </div>
+            </div>   
+        </div>
+        <div class="row">
+            <div class="col-xs-10 col-md-offset-1">
+                {# 评论区域 #}
+                <div class="comment-area">
+                    <h3 class="comment-area-title">评论区域</h3>
+                    {% if user.is_authenticated %}{# 如果登录 #}
+                        {# 评论 #}
+                        <form id="comment-form" action="{% url 'update_comment' %}" method="post" style="overflow: hidden;">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_comment">{{ user.username }}，欢迎你</label>
+                                <textarea name="text" id="id_comment" class="form-control comment_content" cols="30" rows="4"></textarea>
+                                {# 错误提示 #}
+                                <span id="comment_error" class="text-danger pull-left"></span>
+                            </div>
+                            {# 获取类型、ID#}
+                            <input type="hidden" name="content_type" value="blog">
+                            <input type="hidden" name="object_id" value="{{ blog.pk }}">
+                            <input type="submit" value="提交" class="btn btn-primary" style="float: right;">
+                        </form>
+                    {% else %} {# 如果没有登录 #}
+                        您尚未登录，登录即可评论，
+                        <a class="btn btn-primary" href="{% url 'login' %}?from={{ request.get_full_path }}">登录</a>
+                        <span>or</span>
+                        <a class="btn btn-danger" href="{% url 'register' %}?from={{ request.get_full_path }}">注册</a>
+                    {% endif %}
+                </div>
+                <div class="comment-area">
+                    <h3 class="comment-area-title">评论列表</h3>
+                    <div id="comment-list" class="reply_content">
+                        {% for comment in comments %}
+                            <div>
+                                {{ comment.comment_user.username }}
+                                （{{ comment.comment_time|date:"Y-m-d H:i:s" }}）:{{ comment.context|safe }}
+                            <img alt="😍" class="emojione">
+                            </div>
+
+                        {% empty %}
+                            <p>暂无评论</p>
+                        {% endfor %}
+                    </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script_extends %}
+    {# 表情 #}
+    <script type="text/javascript">
+        //引入表情
+        $("#id_comment").emojioneArea();
+        //转义表情
+        $(".reply_content").each(function(){
+        $(this).html(emojione.toImage($(this).text()));
+            });
+
+        {# 异步提交 #}
+        $('#comment-form').submit(function () {
+            $('#comment_error').text('');
+            $.ajax({
+                cache: false,
+                url: '{% url 'update_comment' %}',
+                type: 'POST',
+                data: $('#comment-form').serialize(),//form数据传到后端
+                //提交成功,执行success。data：后端传递给js的数据
+                success: function (data) {
+                    console.log(data);
+                    //传递后端值给ajax,并且显示在评论列表
+                    if (data['status'] == 'SUCCESS'){
+                        var comment_html = '<div>'+ data['comment_user'] + '(' +  data['comment_time']
+                                            + ')' + data['context'] + '</div>';
+                        //去掉评论后保留的字
+                        var comment_obj=$('.emojionearea-editor');
+                        comment_obj.text("");//把保留的字变成空文本
+                        //传递data给评论列表
+                        $('#comment-list').prepend(comment_html);
+                    }else{
+                        //传递错误(text样式)
+                        $('#comment_error').text(data['massage']);
+                    }
+
+                },
+                //如果有错误
+                error: function (xhr) {
+                    console.log(xhr);
+                }
+            });
+            return false; //不让submit转跳
+        });
+    </script>
+{% endblock %}

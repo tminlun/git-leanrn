@@ -21,7 +21,7 @@ class Blog(models.Model,ReadNumExtensionMethods):
     content = RichTextUploadingField()
     blog_type = models.ForeignKey(BlogType,on_delete=models.DO_NOTHING,verbose_name='博客类型')#删除博客不删除作者
     read_details = GenericRelation(ReadNumDate)#反向查询,因为只需要用Blog,可以blog.title,blog.pk
-    author = models.ForeignKey(User,on_delete=models.DO_NOTHING,verbose_name='作者')
+    author = models.ForeignKey(User, on_delete=models.DO_NOTHING,verbose_name='作者')
     created_time = models.DateTimeField(auto_now_add=True,verbose_name='创建时间')#修改时不可以改变
     last_updated_time = models.DateTimeField(auto_now=True,verbose_name='修改时间')
 

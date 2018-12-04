@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00819564-0369-4d28-afb7-454d5c1f00cf" name="Default" comment="2018/10/18">
-      <change beforePath="$PROJECT_DIR$/../TextBlog/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TextBlog/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TextBlog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TextBlog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/mysite/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/mysite/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/mysite/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/mysite/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/mysite/blog/templates/blog/blog_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/mysite/blog/templates/blog/blog_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/mysite/blog/templates/blog/blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/mysite/blog/templates/blog/blog_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/mysite/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/mysite/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mysite_env/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite_env/mysite/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite1/blog1/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite1/blog1/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite1/blog1/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite1/blog1/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite1/blog1/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite1/blog1/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite1/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite1/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite1/mysite1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite1/mysite1/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="00819564-0369-4d28-afb7-454d5c1f00cf" name="Default" comment="2018/10/18" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +19,9 @@
     <session id="-1902507945">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="55" />
+          <entry key="project.closed" value="57" />
           <entry key="project.open.time.0" value="24" />
-          <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.35" value="2" />
           <entry key="project.open.time.36" value="1" />
@@ -58,32 +40,32 @@
           <entry key="project.open.time.62" value="1" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="56" />
+          <entry key="project.opened" value="57" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="9" />
-          <entry key="html" value="39" />
+          <entry key="html" value="40" />
           <entry key="jpg" value="2" />
           <entry key="js" value="1" />
-          <entry key="py" value="129" />
+          <entry key="py" value="130" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="9" />
-          <entry key="HTML" value="39" />
+          <entry key="HTML" value="40" />
           <entry key="Image" value="2" />
           <entry key="JavaScript" value="1" />
-          <entry key="Python" value="129" />
+          <entry key="Python" value="130" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="168" />
           <entry key="html" value="3256" />
-          <entry key="py" value="15641" />
+          <entry key="py" value="15676" />
           <entry key="py@mysite_env1" value="310" />
         </counts>
       </usages-collector>
@@ -93,121 +75,29 @@
           <entry key="CommandLine" value="301" />
           <entry key="HTML" value="3256" />
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="15641" />
+          <entry key="Python" value="15676" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/weather/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/weather/weather_api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1514">
-              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/weather/templates/weather_results.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="277" column="14" selection-start-line="277" selection-start-column="14" selection-end-line="277" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#ul#0;n#div#0;n#div#0;n#article#0;n#div#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/weather/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-              <folding>
-                <element signature="e#1#36#0" expanded="true" />
-                <marker date="1542522301479" expanded="true" signature="1131:1136" ph="..." />
-                <marker date="1542522301479" expanded="true" signature="1259:1260" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mysite1/weather/templates/weather.html">
+        <entry file="file://$PROJECT_DIR$/mysite1/mysite1/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+            <state relative-caret-position="630">
+              <caret line="47" column="73" lean-forward="true" selection-start-line="47" selection-start-column="73" selection-end-line="47" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/weather/models.py">
+        <entry file="file://$PROJECT_DIR$/mysite1/blog1/templates/blog/blog_detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-              <folding>
-                <marker date="1542292785076" expanded="true" signature="55:57" ph="..." />
-              </folding>
+              <caret line="62" column="84" selection-start-line="62" selection-start-column="84" selection-end-line="62" selection-end-column="84" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/weather/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/mysite1/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/comment/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#44#0" expanded="true" />
-                <marker date="1542172001457" expanded="true" signature="219:224" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite1/comment/apps.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -221,7 +111,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -248,7 +138,6 @@
         <option value="$PROJECT_DIR$/mysite1/templates/home.html" />
         <option value="$PROJECT_DIR$/mysite1/templates/login.html" />
         <option value="$PROJECT_DIR$/mysite1/mysite1/forms.py" />
-        <option value="$PROJECT_DIR$/mysite1/mysite1/views.py" />
         <option value="$PROJECT_DIR$/mysite1/blog1/templates/blog/blog_detail.html" />
         <option value="$PROJECT_DIR$/mysite1/templates/registered.html" />
         <option value="$PROJECT_DIR$/mysite1/weather/forms.py" />
@@ -259,8 +148,9 @@
         <option value="$PROJECT_DIR$/mysite1/weather/admin.py" />
         <option value="$PROJECT_DIR$/mysite1/weather/templates/weather_results.html" />
         <option value="$PROJECT_DIR$/mysite1/weather/urls.py" />
-        <option value="$PROJECT_DIR$/mysite1/weather/views.py" />
         <option value="$PROJECT_DIR$/mysite1/weather/templates/weather.html" />
+        <option value="$PROJECT_DIR$/mysite1/weather/views.py" />
+        <option value="$PROJECT_DIR$/mysite1/mysite1/views.py" />
       </list>
     </option>
   </component>
@@ -271,7 +161,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="386" />
+    <option name="x" value="385" />
     <option name="y" value="95" />
     <option name="width" value="1095" />
     <option name="height" value="940" />
@@ -296,7 +186,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,19 +202,13 @@
               <item name="mysite_env1" type="b2602c69:ProjectViewProjectNode" />
               <item name="mysite_env1" type="462c0819:PsiDirectoryNode" />
               <item name="mysite1" type="462c0819:PsiDirectoryNode" />
-              <item name="weather" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mysite_env1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mysite_env1" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite1" type="462c0819:PsiDirectoryNode" />
-              <item name="weather" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="comment" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -468,14 +351,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23297003" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23773842" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32874617" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993188" visible="true" weight="0.17960426" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993188" weight="0.0764526" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28462708" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -739,13 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite1/blog1/templates/blog/blog_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="62" column="84" selection-start-line="62" selection-start-column="84" selection-end-line="62" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysite1/weather/static/js/owl.carousel.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -756,20 +631,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite1/mysite1/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysite1/weather/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="3" column="55" lean-forward="true" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
-          <folding>
-            <marker date="1542276337524" expanded="true" signature="56:57" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -797,16 +662,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite1/mysite1/settings.py">
+    <entry file="file://$PROJECT_DIR$/mysite1/weather/templates/weather.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+        <state relative-caret-position="1650">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite1/weather/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <marker date="1542522450887" expanded="true" signature="1160:1165" ph="..." />
+            <marker date="1542522450887" expanded="true" signature="1288:1289" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite1/weather/templates/weather_results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="277" column="14" selection-start-line="277" selection-start-column="14" selection-end-line="277" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite1/weather/weather_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite1/comment/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
+        <state relative-caret-position="1018">
           <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
@@ -818,13 +711,10 @@
     <entry file="file://$PROJECT_DIR$/mysite1/comment/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite1/weather/weather_api.py">
+    <entry file="file://$PROJECT_DIR$/mysite1/mysite1/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1514">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="478">
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -858,32 +748,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite1/weather/templates/weather_results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="277" column="14" selection-start-line="277" selection-start-column="14" selection-end-line="277" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#ul#0;n#div#0;n#div#0;n#article#0;n#div#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite1/weather/views.py">
+    <entry file="file://$PROJECT_DIR$/mysite1/blog1/templates/blog/blog_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <element signature="e#1#36#0" expanded="true" />
-            <marker date="1542522301479" expanded="true" signature="1131:1136" ph="..." />
-            <marker date="1542522301479" expanded="true" signature="1259:1260" ph="..." />
-          </folding>
+          <caret line="62" column="84" selection-start-line="62" selection-start-column="84" selection-end-line="62" selection-end-column="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite1/weather/templates/weather.html">
+    <entry file="file://$PROJECT_DIR$/mysite1/mysite1/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        <state relative-caret-position="630">
+          <caret line="47" column="73" lean-forward="true" selection-start-line="47" selection-start-column="73" selection-end-line="47" selection-end-column="73" />
         </state>
       </provider>
     </entry>
