@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367773f3-3113-4143-b12e-68e2ad5c6ccd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/organization/migrations/0002_auto_20181205_2101.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/users/migrations/0003_auto_20181205_2101.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../BlogTemplate/mysite_env/.idea/mysite_env.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlogTemplate/mysite_env/.idea/mysite_env.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../BlogTemplate/mysite_env/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlogTemplate/mysite_env/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../BlogTemplate/mysite_env/mysite/apps/blog/templates/blog/blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlogTemplate/mysite_env/mysite/apps/blog/templates/blog/blog_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../BlogTemplate/mysite_env/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../BlogTemplate/mysite_env/mysite/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TextBlog/.idea/.idea/TextBlog.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TextBlog/.idea/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TextBlog/.idea/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
@@ -10236,22 +10238,23 @@
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.31" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.43" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="19" />
+          <entry key="py" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="19" />
+          <entry key="Python" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3687" />
+          <entry key="py" value="3689" />
           <entry key="py@mysite" value="47" />
         </counts>
       </usages-collector>
@@ -10259,7 +10262,7 @@
         <counts>
           <entry key="CommandLine" value="26" />
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="3687" />
+          <entry key="Python" value="3689" />
         </counts>
       </usages-collector>
     </session>
@@ -10269,7 +10272,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
+            <state relative-caret-position="1200">
               <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
               <folding>
                 <element signature="e#305#314#0" expanded="true" />
@@ -10281,11 +10284,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/users/xadmin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
+            <state relative-caret-position="420">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1544018931951" expanded="true" signature="327:344" ph="..." />
               </folding>
             </state>
           </provider>
@@ -10294,13 +10296,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/users/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-390">
+            <state relative-caret-position="30">
               <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
                 <marker date="1544020428576" expanded="true" signature="1049:1130" ph="..." />
                 <marker date="1544020428576" expanded="true" signature="1549:1550" ph="..." />
                 <marker date="1544020428576" expanded="true" signature="1549:1707" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysite/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="454">
+              <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+              <folding>
+                <element signature="e#630#643#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -10327,9 +10341,10 @@
         <option value="$PROJECT_DIR$/organization/models.py" />
         <option value="$PROJECT_DIR$/operation/models.py" />
         <option value="$PROJECT_DIR$/mysite/settings.py" />
-        <option value="$PROJECT_DIR$/mysite/urls.py" />
         <option value="$PROJECT_DIR$/apps/users/xadmin.py" />
         <option value="$PROJECT_DIR$/apps/users/models.py" />
+        <option value="$PROJECT_DIR$/apps/users/admin.py" />
+        <option value="$PROJECT_DIR$/mysite/urls.py" />
       </list>
     </option>
   </component>
@@ -10346,8 +10361,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="646" />
-    <option name="y" value="176" />
+    <option name="x" value="645" />
+    <option name="y" value="175" />
     <option name="width" value="1095" />
     <option name="height" value="940" />
   </component>
@@ -10375,6 +10390,11 @@
               <item name="mysite" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
@@ -10487,20 +10507,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28133515" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28746593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23287672" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29051986" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="manage.py@mysite" order="9" weight="0.4672755" />
+      <window_info active="true" anchor="bottom" id="manage.py@mysite" order="9" visible="true" weight="0.46636087" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="12" />
@@ -10519,28 +10540,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/users/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1543987265537" expanded="true" signature="165:170" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/course/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="64" column="29" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <marker date="1544011382188" expanded="true" signature="129:130" ph="..." />
-            <marker date="1544011382188" expanded="true" signature="1135:1140" ph="..." />
-            <marker date="1544011382188" expanded="true" signature="1582:1665" ph="..." />
-            <marker date="1544011382188" expanded="true" signature="1943:2256" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -10548,29 +10551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
           <caret line="41" column="78" lean-forward="true" selection-start-line="41" selection-start-column="78" selection-end-line="41" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-          <folding>
-            <element signature="e#305#314#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="e#630#662#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -10578,30 +10558,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1484">
           <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <marker date="1544013582312" expanded="true" signature="655:741" ph="..." />
-            <marker date="1544013582312" expanded="true" signature="1162:1569" ph="..." />
-            <marker date="1544013582312" expanded="true" signature="1707:1712" ph="..." />
-            <marker date="1544013582312" expanded="true" signature="2513:2515" ph="..." />
+            <element signature="e#305#314#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/xadmin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
+        <state relative-caret-position="420">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1544018931951" expanded="true" signature="327:344" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+          <folding>
+            <element signature="e#630#643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
+        <state relative-caret-position="30">
           <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
